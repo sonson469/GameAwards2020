@@ -58,6 +58,7 @@
      <Compile Include="Assets\Action_Object.cs" />
      <Compile Include="Assets\ChangeCamera.cs" />
      <Compile Include="Assets\EasyGrassSubstance\Example Scene\ObjectRotation.cs" />
+     <Compile Include="Assets\Enemy.cs" />
      <Compile Include="Assets\OnKeyPress_MoveRotateGravity.cs" />
      <Compile Include="Assets\Oncollision_Objects.cs" />
      <Compile Include="Assets\Player_Contloller.cs" />

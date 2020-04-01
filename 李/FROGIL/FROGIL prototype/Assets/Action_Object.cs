@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Action_Object : MonoBehaviour
 {
-    public float limitsec = 1;
+    public float limitsec = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +14,6 @@ public class Action_Object : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

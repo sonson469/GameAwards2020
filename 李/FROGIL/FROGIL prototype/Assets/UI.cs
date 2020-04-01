@@ -23,8 +23,8 @@ public class UI : MonoBehaviour
         //時間切れ、処理止める
         if(time <= 0)
         {
-            this.time = 0;
-            Time.timeScale = 0;
+            //this.time = 0;
+            //Time.timeScale = 0;
         }
 
     }

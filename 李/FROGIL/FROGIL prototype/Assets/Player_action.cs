@@ -43,10 +43,10 @@ public class Player_action : MonoBehaviour
                 GameObject newGameObject = Instantiate(newPrefab) as GameObject;
                 newGameObject.transform.position = newpos;
                 //投げる
-                Rigidbody rbody = newGameObject.GetComponent<Rigidbody>();
+                //Rigidbody rbody = newGameObject.GetComponent<Rigidbody>();
                 Vector3 throwV = new Vector3(throwX, throwY, throwZ);
                 throwV = this.transform.rotation * throwV;
-                rbody.AddForce(throwV, ForceMode.Impulse);
+                //rbody.AddForce(throwV, ForceMode.Impulse);
 
             }
         }
