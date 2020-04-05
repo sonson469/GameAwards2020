@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
     GameObject Timertext;
-    float time = 30.0f;
+    float time = 90.0f;
 
     // Start is called before the first frame update
     void Start()

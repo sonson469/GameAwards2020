@@ -8,7 +8,19 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/game/game.unity
     guid: b6c7993afaf732e4fbbd546783d89ee7
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: 36e921de9d658ee4e8395dda9cba5462
+  - enabled: 1
+    path: Assets/proto project.unity
+    guid: 43e1bdcdf7a4d7149b13f92c2cbbe2fe
+  - enabled: 1
+    path: Assets/Scenes/Clear.unity
+    guid: 7f4fab0010efb054abd6c999ba252324
+  - enabled: 1
+    path: Assets/Scenes/Gameover.unity
+    guid: 1d2a6e0489b98ec4fbce88560d65a5f1
   m_configObjects: {}
