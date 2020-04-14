@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: 36e921de9d658ee4e8395dda9cba5462
   - enabled: 1
-    path: Assets/proto project.unity
+    path: Assets/Scenes/proto project.unity
     guid: 43e1bdcdf7a4d7149b13f92c2cbbe2fe
   - enabled: 1
     path: Assets/Scenes/Clear.unity
