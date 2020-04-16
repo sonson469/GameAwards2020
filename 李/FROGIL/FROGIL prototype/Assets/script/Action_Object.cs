@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class Action_Object : MonoBehaviour
 {
-    public float limitsec = 3;
+    public float limitsec;
+    public string tagname;
+
+    private Rigidbody rbody;
+
     // Start is called before the first frame update
     void Start()
     {
+        rbody = this.GetComponent<Rigidbody>();
+
         Destroy(this.gameObject, limitsec);
     }
 
@@ -15,5 +21,13 @@ public class Action_Object : MonoBehaviour
     void Update()
     {
 
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.tag == tagname)
+        {
+            rbody.constraints = RigidbodyConstraints.FreezePositionY;
+        }
     }
 }

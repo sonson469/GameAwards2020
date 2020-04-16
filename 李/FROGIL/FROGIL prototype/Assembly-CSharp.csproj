@@ -59,13 +59,14 @@
   <ItemGroup>
     <Compile Include="Assets\EasyGrassSubstance\Example Scene\ObjectRotation.cs" />
     <Compile Include="Assets\PolygonPi\FenceLayout\FenceLayout.cs" />
-    <Compile Include="Assets\Scenes\game\Frog.cs" />
-    <Compile Include="Assets\Scenes\game\tree.cs" />
     <Compile Include="Assets\script\Action_Object.cs" />
+    <Compile Include="Assets\script\Box.cs" />
     <Compile Include="Assets\script\ChangeCamera.cs" />
     <Compile Include="Assets\script\Enemy.cs" />
+    <Compile Include="Assets\script\FireOff.cs" />
     <Compile Include="Assets\script\GoTitle.cs" />
     <Compile Include="Assets\script\GrassClear.cs" />
+    <Compile Include="Assets\script\GrassFire.cs" />
     <Compile Include="Assets\script\OnKeyPress_MoveRotateGravity.cs" />
     <Compile Include="Assets\script\Oncollision_Objects.cs" />
     <Compile Include="Assets\script\Player_Contloller.cs" />

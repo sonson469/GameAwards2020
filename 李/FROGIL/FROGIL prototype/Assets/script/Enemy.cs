@@ -12,6 +12,11 @@ public class Enemy : MonoBehaviour
     public string tagname;
     private NavMeshAgent agent;
 
+    //通常状態
+    public GameObject DefTag;
+    //油状態
+    public GameObject OilTag;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +35,8 @@ public class Enemy : MonoBehaviour
     {
         if (collider.gameObject.tag == tagname)
         {
+            OilTag.SetActive(true);
+            DefTag.SetActive(false);
             agent.speed = 0.0f;
             agent.angularSpeed = 0.0f;
             Invoke("Release", 8.0f);
@@ -38,6 +45,8 @@ public class Enemy : MonoBehaviour
 
     void Release()
     {
+        OilTag.SetActive(false);
+        DefTag.SetActive(true);
         agent.speed = 0.5f;
         agent.angularSpeed = 120.0f;
     }

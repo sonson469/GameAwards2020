@@ -2,26 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// キーを押したら、移動＆回転＆ジャンプする
+//************************************
+// 移動、ジャンプ、舌出してる間止まる
+//************************************
+
 public class OnKeyPress_MoveRotateGravity : MonoBehaviour
 {
-    //移動処理
-    public float speed = 3f;                                       // スピード：Inspectorで指定
-	//public float rotateSpeed = 360f;                              // 回転スピード：Inspectorで指定
-    private float vz = 0;                                         // z方向のImputの値
-    private float vx = 0;                                         // x方向のImputの値
+    //***********
+    // 移動用
+    //***********
+    public float speed = 3f;              // スピード：Inspectorで指定
+	//public float rotateSpeed = 360f;    // 回転スピード：Inspectorで指定
+    private float vz = 0;                 // z方向のImputの値
+    private float vx = 0;                 // x方向のImputの値
+    public bool stop = false;             //プレイヤー停止
     //float angle = 0;
-    //ジャンプ処理
-    public float jumppower = 6;                                   // ジャンプ力：Inspectorで指定
-	bool pushFlag = false;                                        // スペースキーを押しっぱなしかどうか
-	bool jumpFlag = false;                                        // ジャンプ状態かどうか
-	bool groundFlag = false;                                      // 足が何かに触れているかどうか
 
-    //コンポーネント用
+    //****************
+    // ジャンプ処理
+    //****************
+    public float jumppower = 6;           // ジャンプ力：Inspectorで指定
+	bool pushFlag = false;                // スペースキーを押しっぱなしかどうか
+	bool jumpFlag = false;                // ジャンプ状態かどうか
+	bool groundFlag = false;              // 足が何かに触れているかどうか
+
+    //***********
+    // キー取得
+    //***********
+    public string PushKey = "x";
+
+    //*******************
+    // 他スクリプト取得
+    //*******************
+    public Tongue1 tongue;
+
+    //********************
+    // オブジェクト取得
+    //********************
+    public GameObject tonguetag;
+
+    //********************
+    // コンポーネント用
+    //********************
 	private Rigidbody rbody;
     private Vector3 PlayerPos;                                    //プレイヤーのポジション
 
-    //最初に、衝突しても回転させなくしておく（横回転は可)------------------------------------------------------------------------------
+    // 初期化----------------------------------------------------------------------------------------------------------------------------
+    //*******************************************************
+    // 最初に、衝突しても回転させなくしておく（横回転は可)
+    //*******************************************************
     void Start ()
 	{
 		rbody = this.GetComponent<Rigidbody>();
@@ -34,26 +63,43 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     //ずっと行う-------------------------------------------------------------------------------------------------------------------------
 	void Update ()
 	{
-        //angle = Input.GetAxisRaw("Horizontal") * rotateSpeed;
-        vz = Input.GetAxisRaw("Vertical") * speed;
-        vx = Input.GetAxisRaw("Horizontal") * speed;
+        //**********
+        // 移動
+        //**********
+        if (stop == false)     //舌出してないとき
+        {
 
-        //プレイヤーのRigidbodyに対してInputにspeedを掛けた値で更新し移動
-        rbody.velocity = new Vector3(vx, 0, vz);
+            //angle = Input.GetAxisRaw("Horizontal") * rotateSpeed;
+            vz = Input.GetAxisRaw("Vertical") * speed;
+            vx = Input.GetAxisRaw("Horizontal") * speed;
+            //プレイヤーのRigidbodyに対してInputにspeedを掛けた値で更新し移動
+            rbody.velocity = new Vector3(vx, 0, vz);
 
-        // 力を設定
-        //Vector3 force = new Vector3(vx, 0, vz);
-        // 力を加える
-        //rbody.AddForce(force);
+            // 力を設定
+            //Vector3 force = new Vector3(vx, 0, vz);
+            // 力を加える
+            //rbody.AddForce(force);
 
-        //プレイヤーがどの方向に進んでいるかわかるようにする
-        Vector3 diff = rbody.velocity - PlayerPos;
+            //プレイヤーがどの方向に進んでいるかわかるようにする
+            Vector3 diff = rbody.velocity - PlayerPos;
 
-        if (diff.magnitude > 0.01f) //0のときは変わらないようにする
-        { 
-            transform.rotation = Quaternion.LookRotation(diff);
+            if (diff.magnitude > 0.01f) //0のときは変わらないようにする
+            {
+                transform.rotation = Quaternion.LookRotation(diff);
+            }
+
+        }
+        if(Input.GetKeyDown(PushKey))
+        {
+            stop = true;
+            tonguetag.SetActive(true);
         }
 
+
+
+        //************
+        // ジャンプ
+        //************
         // もし、スペースキーが押されたとき、足が何かに触れていたら
         if (Input.GetKey("space") && groundFlag)
 		{
@@ -71,6 +117,9 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     // ずっと-------------------------------------------------------------------------------------------------------------------------------
     private void FixedUpdate()
     {
+        //**********
+        // 移動
+        //**********
         /*if (vz !=0) // 移動する
 		{
 			this.transform.Translate(0, 0,  vz / 50);
@@ -83,9 +132,12 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
 		{
 			this.transform.Rotate(0, angle / 50, 0);
 		}*/
-		// もし、ジャンプするときならジャンプする
-		if (jumpFlag)
-		{
+
+        //************
+        // ジャンプ
+        //************
+		if (jumpFlag)      // もし,ジャンプするときならジャンプする
+        {
 			jumpFlag = false;
 			rbody.AddForce(new Vector3(0, jumppower, 0), ForceMode.Impulse);
 		}

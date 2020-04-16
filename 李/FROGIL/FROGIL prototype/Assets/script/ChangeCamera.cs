@@ -10,6 +10,9 @@ public class ChangeCamera : MonoBehaviour
     [SerializeField]
     public GameObject TPSCamera;
 
+    public string PushKey = "1";
+    bool pushflag = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +23,22 @@ public class ChangeCamera : MonoBehaviour
     void Update()
     {
         
-        if(Input.GetKeyDown("1"))
+
+        if (Input.GetKey(PushKey))
         {
-            MainCamera.SetActive(!MainCamera.activeSelf);
-            TPSCamera.SetActive(!TPSCamera.activeSelf);
+            if (pushflag == false)
+            {
+                pushflag = true;
+
+                MainCamera.SetActive(!MainCamera.activeSelf);
+                TPSCamera.SetActive(!TPSCamera.activeSelf);
+
+            }
+        }
+        else
+        {
+            //押す解除
+            pushflag = false;
         }
 
     }
