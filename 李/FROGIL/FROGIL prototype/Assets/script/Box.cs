@@ -12,6 +12,8 @@ public class Box : MonoBehaviour
     // 対象設定
     //***********
     public string OilTag;    //油
+    public string switchTag;
+    public GameObject Slope1;
 
     //***********
     // フラグ
@@ -47,6 +49,11 @@ public class Box : MonoBehaviour
             rbody.constraints = RigidbodyConstraints.None;
             rbody.constraints = RigidbodyConstraints.FreezePositionY;
             rbody.constraints = RigidbodyConstraints.FreezeRotation;
+        }
+
+        if (collider.gameObject.tag == switchTag)
+        {
+            Slope1.SetActive(true);
         }
     }
 

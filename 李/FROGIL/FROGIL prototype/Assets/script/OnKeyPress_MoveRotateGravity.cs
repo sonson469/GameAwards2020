@@ -21,15 +21,18 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     //****************
     // ジャンプ処理
     //****************
-    public float jumppower = 6;           // ジャンプ力：Inspectorで指定
-	bool pushFlag = false;                // スペースキーを押しっぱなしかどうか
-	bool jumpFlag = false;                // ジャンプ状態かどうか
-	bool groundFlag = false;              // 足が何かに触れているかどうか
+    //public float jumppower = 6;           // ジャンプ力：Inspectorで指定
+    public float jumping = 6;           // ジャンプ力：Inspectorで指定
+	//bool pushFlag = false;                // スペースキーを押しっぱなしかどうか
+	//bool jumpFlag = false;                // ジャンプ状態かどうか
+	//bool groundFlag = false;              // 足が何かに触れているかどうか
+    private bool groundFlag = true;//  地面に着地しているか判定する変数
 
     //***********
     // キー取得
     //***********
-    public string PushKey = "x";
+    public string PushKeyTongue = "x";
+    public string PushKeyJump = "c";
 
     //*******************
     // 他スクリプト取得
@@ -40,6 +43,7 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     // オブジェクト取得
     //********************
     public GameObject tonguetag;
+    public string Slope;
 
     //********************
     // コンポーネント用
@@ -54,7 +58,6 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     void Start ()
 	{
 		rbody = this.GetComponent<Rigidbody>();
-		rbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
         //最初の時点でのプレイヤーのポジションを取得
         PlayerPos = GetComponent<Transform>().position;
@@ -89,30 +92,47 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
             }
 
         }
-        if(Input.GetKeyDown(PushKey))
+        if(Input.GetKeyDown(PushKeyTongue))
         {
             stop = true;
             tonguetag.SetActive(true);
         }
 
-
+        if (groundFlag == true)//  もし、GroundFlagがtrueなら、
+        {
+            if (Input.GetKeyDown(PushKeyJump))//  もし、スペースキーがおされたなら、  
+            {
+                
+                rbody.AddForce(Vector3.up * jumping);  // ジャンプ力をかける
+                groundFlag = false;  // 地面から離れる
+            }
+        }
 
         //************
         // ジャンプ
         //************
         // もし、スペースキーが押されたとき、足が何かに触れていたら
-        if (Input.GetKey("space") && groundFlag)
+        /*if (Input.GetKey("space") && groundFlag)
 		{
 			if (pushFlag == false) // 押しっぱなしでなければ
 			{
 				pushFlag = true; // 押した状態に
 				jumpFlag = true; // ジャンプの準備
 			}
-		} else
+		}
+        else
 		{
 			pushFlag = false; 	// 押した状態解除
-		}
-	}
+		}*/
+
+        //***********
+        // 坂
+        //***********
+
+
+
+
+    }
 
     // ずっと-------------------------------------------------------------------------------------------------------------------------------
     private void FixedUpdate()
@@ -136,15 +156,15 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
         //************
         // ジャンプ
         //************
-		if (jumpFlag)      // もし,ジャンプするときならジャンプする
+		/*if (jumpFlag)      // もし,ジャンプするときならジャンプする
         {
 			jumpFlag = false;
 			rbody.AddForce(new Vector3(0, jumppower, 0), ForceMode.Impulse);
-		}
+		}*/
 	}
 
     // 足が何かに触れたら-------------------------------------------------------------------------------------------------------------------------
-    private void OnTriggerStay(Collider collision)
+    /*private void OnTriggerStay(Collider collision)
 	{
 		groundFlag = true;
 	}
@@ -152,6 +172,17 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     private void OnTriggerExit(Collider collision)
 	{
 		groundFlag = false;
-	}
+	}*/
+
+    void OnCollisionEnter(Collision collision)//  地面に触れた時の処理
+    {
+        if (collision.gameObject.tag == "Stage")//  もしGroundというタグがついたオブジェクトに触れたら、
+        {
+            groundFlag = true;//  Groundedをtrueにする
+
+        }
+
+        
+    }
 
 }
