@@ -6,5 +6,18 @@
 
 油を出したらゲージが減る
 
+〇4/22更新
 
+〇変更点
+
+カエルが8回油を出したら5秒間クールタイムを挟む
+
+package内
+・image
+oilgauge->canvus内
+oilline->canvus内
+・script
+player_action->Player
+oilaction->Player
+UI->GameDirector
 
