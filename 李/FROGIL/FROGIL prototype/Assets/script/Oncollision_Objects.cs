@@ -13,9 +13,9 @@ public class Oncollision_Objects : MonoBehaviour
         //Time.timeScale = 1;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        if(collision.gameObject.tag == tagname)
+        if(collider.gameObject.tag == tagname)
         {
 
             Destroy(this.gameObject);

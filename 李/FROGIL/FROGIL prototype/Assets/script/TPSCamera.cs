@@ -18,12 +18,12 @@ public class TPSCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // オブジェクトの座標を変数 pos に格納
-        Vector3 pos = transform.position;
+        // オブジェクトの座標を格納
+        Vector3 position = transform.position;
         // ターゲットオブジェクトの座標にオフセット値を加える
-        pos.x = target.position.x;
-        pos.z = target.position.z + offset;
+        position.x = target.position.x;
+        position.z = target.position.z + offset;
         // posの値をオブジェクト座標に格納
-        transform.position = pos;
+        transform.position = position;
     }
 }

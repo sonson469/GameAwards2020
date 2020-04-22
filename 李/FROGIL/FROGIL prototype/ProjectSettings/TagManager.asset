@@ -11,6 +11,10 @@ TagManager:
   - Stage
   - Tongue
   - Match
+  - Fire
+  - Slope
+  - switchTag
+  - Slope2
   layers:
   - Default
   - TransparentFX

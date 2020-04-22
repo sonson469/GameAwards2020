@@ -59,13 +59,14 @@
   <ItemGroup>
     <Compile Include="Assets\EasyGrassSubstance\Example Scene\ObjectRotation.cs" />
     <Compile Include="Assets\PolygonPi\FenceLayout\FenceLayout.cs" />
-    <Compile Include="Assets\Scenes\game\Frog.cs" />
-    <Compile Include="Assets\Scenes\game\tree.cs" />
     <Compile Include="Assets\script\Action_Object.cs" />
+    <Compile Include="Assets\script\Box.cs" />
     <Compile Include="Assets\script\ChangeCamera.cs" />
     <Compile Include="Assets\script\Enemy.cs" />
+    <Compile Include="Assets\script\FireOff.cs" />
     <Compile Include="Assets\script\GoTitle.cs" />
     <Compile Include="Assets\script\GrassClear.cs" />
+    <Compile Include="Assets\script\GrassFire.cs" />
     <Compile Include="Assets\script\OnKeyPress_MoveRotateGravity.cs" />
     <Compile Include="Assets\script\Oncollision_Objects.cs" />
     <Compile Include="Assets\script\Player_Contloller.cs" />
@@ -79,31 +80,31 @@
     <Compile Include="Assets\script\tongue.cs" />
     <None Include="Assets\EasyGrassSubstance\Documentation.txt" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/sonso/Desktop/FROGIL/FROGIL prototype/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/sonso/Desktop/4.16更新/FROGIL/FROGIL prototype/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/sonso/Desktop/FROGIL/FROGIL prototype/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/sonso/Desktop/4.16更新/FROGIL/FROGIL prototype/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/sonso/Desktop/FROGIL/FROGIL prototype/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/sonso/Desktop/4.16更新/FROGIL/FROGIL prototype/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/sonso/Desktop/FROGIL/FROGIL prototype/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/sonso/Desktop/4.16更新/FROGIL/FROGIL prototype/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/sonso/Desktop/FROGIL/FROGIL prototype/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/sonso/Desktop/4.16更新/FROGIL/FROGIL prototype/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/sonso/Desktop/FROGIL/FROGIL prototype/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/sonso/Desktop/4.16更新/FROGIL/FROGIL prototype/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/sonso/Desktop/FROGIL/FROGIL prototype/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/sonso/Desktop/4.16更新/FROGIL/FROGIL prototype/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/sonso/Desktop/FROGIL/FROGIL prototype/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/sonso/Desktop/4.16更新/FROGIL/FROGIL prototype/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/sonso/Desktop/FROGIL/FROGIL prototype/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/sonso/Desktop/4.16更新/FROGIL/FROGIL prototype/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.1f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

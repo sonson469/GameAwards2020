@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
     //時間制限処理
-    GameObject Timertext;
+    public GameObject Timertext;
     float time = 90.0f;
     //オイル処理
-    GameObject oilGauge;
+    public GameObject oilGauge;
     float Oil = 1;
     // Start is called before the first frame update
     void Start()
