@@ -6,37 +6,27 @@ public class oilaction : MonoBehaviour
 {
 
     public GameObject newPrefab;
-    public GameObject Player_action;
-    Player_action script;
-
     public string PushKey = "z";
     public float offsetX = 0f;
     public float offsetY = 0f;
     public float offsetZ = 0.5f;
 
-    
+
 
     bool pushflag = false;
-
-    public float oil;
 
     // Start is called before the first frame update
     void Start()
     {
-        Player_action = GameObject.Find("Player");
-        script = Player_action.GetComponent<Player_action>();
-        
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        oil = script.oilmator;
-        //Debug.Log(oil);
-        if (Input.GetKey(PushKey) && oil > 0.0f)
+        if (Input.GetKey(PushKey))
         {
-            if (pushflag == false && script.oilmator >= 0.0f)
+            if (pushflag == false)
             {
                 pushflag = true;
 

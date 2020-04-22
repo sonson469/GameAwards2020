@@ -12,32 +12,25 @@ public class Player_action : MonoBehaviour
     public float offsetX = 0f;
     public float offsetY = 1f;
     public float offsetZ = 0.5f;
-    //クールタイム
-    public bool Use;
-    public float cooltime;
-    public float oilmator;
+
+    
 
     bool pushflag = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        Use = true;
-        cooltime = 0.0f;
-        oilmator = 8.0f;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        //8回使うと５秒間使えなくなる
         if(Input.GetKey(PushKey))
         {
-            if(pushflag == false && Use == true && oilmator > 0.0f)
+            if(pushflag == false)
             {
                 pushflag = true;
-                //Use = false;
-                oilmator -= 1.0f;
 
                 Vector3 newpos = this.transform.position;
 
@@ -61,6 +54,7 @@ public class Player_action : MonoBehaviour
 
             }
             
+           
 
         }
         else
@@ -69,25 +63,5 @@ public class Player_action : MonoBehaviour
             pushflag = false;
 
         }
-
-        if (oilmator <= 0.0f)
-        {
-            Use = false;
-
-
-
-            if (Use == false)
-            {
-                cooltime += Time.deltaTime;
-
-            }
-            if (cooltime >= 5.0f)
-            {
-                Use = true;
-                cooltime = 0.0f;
-                oilmator = 8.0f;
-            }
-        }
-        
     }
 }

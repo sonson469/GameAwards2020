@@ -10,11 +10,7 @@ public class UI : MonoBehaviour
     float time = 90.0f;
     //オイル処理
     GameObject oilGauge;
-    
-
-    public GameObject Player_action;
-    Player_action script;
-    public float oil;
+    float Oil = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,15 +19,11 @@ public class UI : MonoBehaviour
         this.Timertext = GameObject.Find("Time");
         //オイルオブジェクト見つける
         this.oilGauge = GameObject.Find("oilGauge");
-        Player_action = GameObject.Find("Player");
-        script = Player_action.GetComponent<Player_action>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        oil = script.oilmator;
-        //Debug.Log(oil);
         this.time -= Time.deltaTime;
         this.Timertext.GetComponent<Text>().text = this.time.ToString("F1");
         //時間切れ、処理止める
@@ -40,12 +32,18 @@ public class UI : MonoBehaviour
             //this.time = 0;
             //Time.timeScale = 0;
         }
-
-       
-        if (oil <= 0)
+        if(Oil >1)
         {
-             this.oilGauge.GetComponent<Image>().fillAmount +=0.00085f;
-              
+            Oil = 1;
+        }
+        if(Oil < 0)
+        {
+            Oil = 0;
+        }
+        if (Oil <= 0)
+        {
+            this.oilGauge.GetComponent<Image>().fillAmount +=0.005f;
+            Oil += 0.005f;
         }
 
 
@@ -54,13 +52,12 @@ public class UI : MonoBehaviour
     public void DecreseOil()
     {
         
-            if (oil > 0)
+            if (Oil > 0)
             {
-                this.oilGauge.GetComponent<Image>().fillAmount -= 0.125f;
-                
+                this.oilGauge.GetComponent<Image>().fillAmount -= 0.25f;
+                Oil -= 0.25f;
             }
             
-
             
         
         
