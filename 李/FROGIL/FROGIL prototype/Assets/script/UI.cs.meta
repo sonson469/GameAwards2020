@@ -3,7 +3,10 @@ guid: 2e2348690113126448b2f248991a33d2
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Timertext: {instanceID: 0}
+  - oilGauge: {fileID: 2407989394250373936, guid: 4761f50adc743e048a6d89fc4d521251,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

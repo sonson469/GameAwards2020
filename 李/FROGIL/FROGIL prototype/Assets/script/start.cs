@@ -16,7 +16,7 @@ public class start : MonoBehaviour
     {
         if (Input.GetKey("space"))
         {
-            SceneManager.LoadScene("proto project");
+            SceneManager.LoadScene("Stage1");
         }
     }
 }

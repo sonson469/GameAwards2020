@@ -12,9 +12,13 @@ TagManager:
   - Tongue
   - Match
   - Fire
-  - Slope
   - switchTag
   - Slope2
+  - Slope
+  - Box
+  - Box ice
+  - BreakWall
+  - Box oil
   layers:
   - Default
   - TransparentFX
