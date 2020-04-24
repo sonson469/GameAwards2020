@@ -2483,7 +2483,7 @@ MonoBehaviour:
   BoxTag: Box
   BoxoilTag: Box oil
   BreakWall: {fileID: 1749165129}
-  limit: 2
+  limit: 3
 --- !u!4 &1247884681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2451371360909290765, guid: 82b2f07482b3d3b4e854799ba89c689d,
