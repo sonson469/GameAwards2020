@@ -778,17 +778,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 241645711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e28a1a63c8808447a646727dca38fef, type: 3}
+  m_Script: {fileID: 11500000, guid: b27da64ed1a8edc4884248871aef84c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RightKey: l
-  LeftKey: j
-  MaeKey: k
-  UsiroKey: i
-  UpRightKey: h
-  UpLeftKey: f
-  UpMaeKey: g
-  UpUsiroKey: t
+  speed: 40
+  radius: 30
+  center: {fileID: 318564650}
+  PushKeyRight: j
+  PushKeyLeft: l
+  PushKeyUp: i
+  PushKeyDown: k
 --- !u!4 &256319228 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2451371360909290765, guid: 82b2f07482b3d3b4e854799ba89c689d,
@@ -3046,7 +3045,7 @@ GameObject:
   - component: {fileID: 1640056785}
   - component: {fileID: 1640056784}
   m_Layer: 0
-  m_Name: Ground
+  m_Name: StageGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
