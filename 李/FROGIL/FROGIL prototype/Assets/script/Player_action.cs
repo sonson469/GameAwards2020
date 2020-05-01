@@ -16,6 +16,8 @@ public class Player_action : MonoBehaviour
     public bool Use;
     public float cooltime;
     public float oilmator;
+    //油UI用番号
+    public int oilUInum;
 
     bool pushflag = false;
 
@@ -25,6 +27,7 @@ public class Player_action : MonoBehaviour
         Use = true;
         cooltime = 0.0f;
         oilmator = 8.0f;
+        oilUInum = 8;
     }
 
     // Update is called once per frame
@@ -38,6 +41,7 @@ public class Player_action : MonoBehaviour
                 pushflag = true;
                 //Use = false;
                 oilmator -= 1.0f;
+                oilUInum -= 1;
 
                 Vector3 newpos = this.transform.position;
 
@@ -72,6 +76,7 @@ public class Player_action : MonoBehaviour
 
         if (oilmator <= 0.0f)
         {
+
             Use = false;
 
 
@@ -86,6 +91,7 @@ public class Player_action : MonoBehaviour
                 Use = true;
                 cooltime = 0.0f;
                 oilmator = 8.0f;
+                oilUInum = 8;
             }
         }
         

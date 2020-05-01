@@ -564,6 +564,3 @@ C:\Users\sonso\Desktop\FROGIL\FROGIL prototype\obj\Debug\Assembly-CSharp.csproj.
 C:\Users\sonso\Desktop\FROGIL\FROGIL prototype\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Users\sonso\Desktop\FROGIL\FROGIL prototype\obj\Debug\Assembly-CSharp.dll
 C:\Users\sonso\Desktop\FROGIL\FROGIL prototype\obj\Debug\Assembly-CSharp.pdb
-C:\Users\sonso\Desktop\FROGIL\FROGIL prototype\Temp\bin\Debug\nunit.framework.dll
-C:\Users\sonso\Desktop\FROGIL\FROGIL prototype\Temp\bin\Debug\nunit.framework.pdb
-C:\Users\sonso\Desktop\FROGIL\FROGIL prototype\Temp\bin\Debug\nunit.framework.xml

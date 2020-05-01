@@ -22,7 +22,7 @@ public class UI : MonoBehaviour
        // Time.timeScale = 1;
        // this.Timertext = GameObject.Find("Time");
         //オイルオブジェクト見つける
-        this.oilGauge = GameObject.Find("oilGauge");
+        this.oilGauge = GameObject.Find("oilGauge8");
         Player_action = GameObject.Find("Player");
         script = Player_action.GetComponent<Player_action>();
     }

@@ -13,8 +13,8 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     //***********
     public float speed = 3f;              // スピード：Inspectorで指定
 	//public float rotateSpeed = 360f;    // 回転スピード：Inspectorで指定
-    private float vz = 0;                 // z方向のImputの値
-    private float vx = 0;                 // x方向のImputの値
+    //private float vz = 0;                 // z方向のImputの値
+    //private float vx = 0;                 // x方向のImputの値
     public bool stop = false;             //プレイヤー停止
     //float angle = 0;
 
@@ -45,7 +45,7 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     //********************
     // コンポーネント用
     //********************
-	private Rigidbody rbody;
+    private Rigidbody rbody;
     private Vector3 PlayerPos;                                    //プレイヤーのポジション
 
     // 初期化----------------------------------------------------------------------------------------------------------------------------
@@ -70,11 +70,15 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
         if (stop == false)     //舌出してないとき
         {
 
-            vz = Input.GetAxisRaw("Vertical") * speed;
-            vx = Input.GetAxisRaw("Horizontal") * speed;
+            var cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
+            Vector3 direction = cameraForward * Input.GetAxis("Vertical") * speed + Camera.main.transform.right * Input.GetAxis("Horizontal") * speed;
+
+            //vz = Input.GetAxisRaw("Vertical") * speed;
+            // vx = Input.GetAxisRaw("Horizontal") * speed;
 
             //プレイヤーのRigidbodyに対してInputにspeedを掛けた値で更新し移動
-            rbody.velocity = new Vector3(vx, 0, vz);
+            //rbody.velocity = new Vector3(vx, 0, vz);
+            rbody.velocity = new Vector3(direction.x, direction.y, direction.z);
 
 
             //プレイヤーがどの方向に進んでいるかわかるようにする
