@@ -61,21 +61,21 @@ public class Tongue1 : MonoBehaviour
             //舌前進
             if (plusz <= movemax)
             {
-                plusz += speed;
+                plusz += speed * Time.deltaTime;
                 Vector3 move = new Vector3(0, 0, plusz);
 
                 move = this.transform.rotation * move;
-                position += move;
+                position += move * Time.deltaTime;
                 transform.position = position;
             }
             //舌後退
             else
             {
-                minusz += speed;
+                minusz += speed * Time.deltaTime;
                 Vector3 move = new Vector3(0, 0, minusz);
 
                 move = this.transform.rotation * move;
-                position -= move;
+                position -= move * Time.deltaTime;
                 transform.position = position;
 
                 //舌をしまう
@@ -86,6 +86,7 @@ public class Tongue1 : MonoBehaviour
                     action = false;
                     player.stop = false;
                     this.gameObject.SetActive(false);
+                    player.tongueflag = false;
                 }
             }
 
@@ -96,6 +97,12 @@ public class Tongue1 : MonoBehaviour
         {
             if(action == false)
             {
+                //座標を整える
+                Vector3 pos = new Vector3(0, 0, 1.0f);
+                pos = this.transform.rotation * pos;
+                position += pos;
+                // positionの値をオブジェクト座標に格納
+                transform.position = position;
 
                 Invoke("Action", limit);
 

@@ -18,6 +18,9 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     public bool stop = false;             //プレイヤー停止
     //float angle = 0;
 
+    //舌ON
+    public bool tongueflag;
+
     //****************
     // ジャンプ処理
     //****************
@@ -47,6 +50,7 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     //********************
     private Rigidbody rbody;
     private Vector3 PlayerPos;                                    //プレイヤーのポジション
+    Animator animator;
 
     // 初期化----------------------------------------------------------------------------------------------------------------------------
     //*******************************************************
@@ -56,6 +60,8 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
 	{
 		rbody = this.GetComponent<Rigidbody>();
 		rbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
+        animator = GetComponentInChildren<Animator>();
 
         //最初の時点でのプレイヤーのポジションを取得
         PlayerPos = GetComponent<Transform>().position;
@@ -89,12 +95,18 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
                 transform.rotation = Quaternion.LookRotation(diff);
             }
 
+            animator.SetFloat("Speed", diff.magnitude);
+
         }
         if(Input.GetKeyDown(PushKey))
         {
+
+            tongueflag = true;
             stop = true;
             tonguetag.SetActive(true);
         }
+
+        animator.SetBool("Tongue", tongueflag);
 
 
 

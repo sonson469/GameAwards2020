@@ -11,8 +11,8 @@ public class oilaction : MonoBehaviour
 
     public string PushKey = "z";
     public float offsetX = 0f;
-    public float offsetY = 0f;
-    public float offsetZ = 0.5f;
+    public float offsetY = 1.0f;
+    public float offsetZ = 1.0f;
 
     
 
