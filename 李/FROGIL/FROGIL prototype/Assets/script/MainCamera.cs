@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//****************************************************************
+// メインカメラの回転、移動
+//****************************************************************
+
 public class MainCamera : MonoBehaviour
 {
 
@@ -57,49 +61,47 @@ public class MainCamera : MonoBehaviour
         //*************
         // 回転処理
         //*************
-        if (Input.GetKey(PushKeyRight))
-        {
-            Vector3 axis = transform.TransformDirection(Vector3.down);
-            transform.RotateAround(center.transform.position, axis, speed * Time.deltaTime);
-            this.gameObject.transform.LookAt(center.transform);
-        }
-        if (Input.GetKey(PushKeyLeft))
-        {
-            Vector3 axis = transform.TransformDirection(Vector3.up);
-            transform.RotateAround(center.transform.position, axis, speed * Time.deltaTime);
-            this.gameObject.transform.LookAt(center.transform);
-        }
-        if (Input.GetKey(PushKeyUp))
-        {
-            Vector3 axis = transform.TransformDirection(Vector3.left);
-            transform.RotateAround(center.transform.position, axis, speed * Time.deltaTime);
-            this.gameObject.transform.LookAt(center.transform);
-        }
-        if (Input.GetKey(PushKeyDown))
-        {
-            Vector3 axis = transform.TransformDirection(Vector3.right);
-            transform.RotateAround(center.transform.position, axis, speed * Time.deltaTime);
-            this.gameObject.transform.LookAt(center.transform);
-        }
 
-        //************
-        // 上下移動
-        //************
-        if (Input.GetKey(PushKeyPosUp))
+        // 左右回転
+        Vector3 axis = transform.TransformDirection(Vector3.left)* -Input.GetAxisRaw("Vertical2");
+        axis = transform.TransformDirection(Vector3.right) * -Input.GetAxisRaw("Vertical2");
+        transform.RotateAround(center.transform.position, axis, speed * Time.deltaTime);
+        this.gameObject.transform.LookAt(center.transform);
+
+        // 上下回転
+        axis = transform.TransformDirection(Vector3.up) * -Input.GetAxisRaw("Horizontal2");
+        axis = transform.TransformDirection(Vector3.down) * -Input.GetAxisRaw("Horizontal2");
+        transform.RotateAround(center.transform.position, axis, speed * Time.deltaTime);
+        this.gameObject.transform.LookAt(center.transform);
+
+        //*************
+        // 移動処理
+        //*************
+        if (Input.GetButton("CameraChange"))
         {
-            position.y += UDspeed * Time.deltaTime;
+
+            // 上下移動
+            Vector3 move = new Vector3(0, UDspeed, 0);
+            move = this.transform.rotation * move;  // これでこのオブジェクトから見たX,Y,Zにできるよ(たぶん)
+
+            position += move * Time.deltaTime * Input.GetAxisRaw("Vertical2");
+            transform.position = position;                                      // カメラの座標を変える
+            centerpos += move * Time.deltaTime * Input.GetAxisRaw("Vertical2");
+            center.transform.position = centerpos;                              // 視点の座標を変える
+
+            this.gameObject.transform.LookAt(center.transform);                 //視点を見る
+
+            // 左右移動
+            Vector3 move2 = new Vector3(UDspeed, 0, 0);
+            move2 = this.transform.rotation * move2;
+
+            position += move2 * Time.deltaTime * Input.GetAxisRaw("Horizontal2");
             transform.position = position;
-            centerpos.y += UDspeed * Time.deltaTime;
+            centerpos += move2 * Time.deltaTime * Input.GetAxisRaw("Horizontal2");
             center.transform.position = centerpos;
-            this.gameObject.transform.LookAt(center.transform);
-        }
-        if (Input.GetKey(PushKeyPosDown))
-        {
-            position.y -= UDspeed * Time.deltaTime;
-            transform.position = position;
-            centerpos.y -= UDspeed * Time.deltaTime;
-            center.transform.position = centerpos;
-            this.gameObject.transform.LookAt(center.transform);
+
+            this.gameObject.transform.LookAt(center.transform);          //上下とほぼ同じ
+
         }
 
         //***************

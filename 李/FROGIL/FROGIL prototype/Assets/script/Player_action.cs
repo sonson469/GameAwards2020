@@ -34,7 +34,7 @@ public class Player_action : MonoBehaviour
     void Update()
     {
         //8回使うと５秒間使えなくなる
-        if(Input.GetKey(PushKey))
+        if(Input.GetButtonDown("Oil"))
         {
             if(pushflag == false && Use == true && oilmator > 0.0f)
             {

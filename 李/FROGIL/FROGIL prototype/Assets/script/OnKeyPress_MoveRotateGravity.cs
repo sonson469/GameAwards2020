@@ -98,7 +98,7 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
             animator.SetFloat("Speed", diff.magnitude);
 
         }
-        if(Input.GetKeyDown(PushKey))
+        if(Input.GetButtonDown("Tongue"))
         {
 
             tongueflag = true;

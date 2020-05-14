@@ -58,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\EasyGrassSubstance\Example Scene\ObjectRotation.cs" />
+    <Compile Include="Assets\OilScript.cs" />
+    <Compile Include="Assets\PlayerSlope.cs" />
     <Compile Include="Assets\PolygonPi\FenceLayout\FenceLayout.cs" />
     <Compile Include="Assets\RESULT.cs" />
     <Compile Include="Assets\UITime.cs" />

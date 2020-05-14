@@ -16,7 +16,7 @@ public class start : MonoBehaviour
     {
         if (Input.GetKey("space"))
         {
-            SceneManager.LoadScene("Stage1");
+            SceneManager.LoadScene("Stage3");
         }
     }
 }
