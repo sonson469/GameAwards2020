@@ -33,7 +33,7 @@ public class oilaction : MonoBehaviour
     void Update()
     {
         oil = script.oilmator;
-        //Debug.Log(oil);
+        Debug.Log(oil);
         if (Input.GetKey(PushKey) && oil > 0.0f)
         {
             if (pushflag == false && script.oilmator >= 0.0f)

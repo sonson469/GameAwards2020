@@ -1,0 +1,12 @@
+canvus内image
+Oil_Move10
+Oil_Move10waku
+Oil_Move5
+Oil_Move5waku
+
+script
+Box 
+Boxice
+UIChase
+
+UIChaseは各UIにアタッチして各UIのinspectorのtargetobjectに追従させるObject名を書く
