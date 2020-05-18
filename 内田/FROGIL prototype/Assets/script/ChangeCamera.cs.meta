@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 824b019e5a71a1c46999dadfc299ffee
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - MainCamera: {fileID: 4830082534788934993, guid: a7d22a353908aa34686cb60d32e8a7c9,
+      type: 3}
+  - TPSCamera: {fileID: 7341066259246184751, guid: f97aba4d0bcd7fc418ce7bc556fe348d,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
