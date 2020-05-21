@@ -9,7 +9,12 @@ ModelImporter:
   - first:
       74: -4210932155025128604
     second: Break
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn1
+    second: {fileID: 2100000, guid: 20c98fba4dbaa924b9383d5f628a836d, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

@@ -24,10 +24,10 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     //****************
     // ジャンプ処理
     //****************
-    public float jumppower = 6;           // ジャンプ力：Inspectorで指定
+    /*public float jumppower = 6;           // ジャンプ力：Inspectorで指定
 	bool pushFlag = false;                // スペースキーを押しっぱなしかどうか
 	bool jumpFlag = false;                // ジャンプ状態かどうか
-	bool groundFlag = false;              // 足が何かに触れているかどうか
+	bool groundFlag = false;              // 足が何かに触れているかどうか*/
 
     //***********
     // キー取得
@@ -59,7 +59,7 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     void Start ()
 	{
 		rbody = this.GetComponent<Rigidbody>();
-		rbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+		//rbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
         animator = GetComponentInChildren<Animator>();
 
@@ -114,7 +114,7 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
         // ジャンプ
         //************
         // もし、スペースキーが押されたとき、足が何かに触れていたら
-        if (Input.GetKey("space") && groundFlag)
+        /*if (Input.GetKey("space") && groundFlag)
 		{
 			if (pushFlag == false) // 押しっぱなしでなければ
 			{
@@ -124,7 +124,7 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
 		} else
 		{
 			pushFlag = false; 	// 押した状態解除
-		}
+		}*/
 	}
 
     // ずっと-------------------------------------------------------------------------------------------------------------------------------
@@ -149,15 +149,15 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
         //************
         // ジャンプ
         //************
-		if (jumpFlag)      // もし,ジャンプするときならジャンプする
-        {
-			jumpFlag = false;
-			rbody.AddForce(new Vector3(0, jumppower, 0), ForceMode.Impulse);
-		}
+		//if (jumpFlag)      // もし,ジャンプするときならジャンプする
+       // {
+			//jumpFlag = false;
+			//rbody.AddForce(new Vector3(0, jumppower, 0), ForceMode.Impulse);
+		//}
 	}
 
     // 足が何かに触れたら-------------------------------------------------------------------------------------------------------------------------
-    private void OnTriggerStay(Collider collision)
+    /*private void OnTriggerStay(Collider collision)
 	{
 		groundFlag = true;
 	}
@@ -165,6 +165,6 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     private void OnTriggerExit(Collider collision)
 	{
 		groundFlag = false;
-	}
+	}*/
 
 }

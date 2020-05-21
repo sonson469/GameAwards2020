@@ -510,9 +510,6 @@ GameObject:
   - component: {fileID: 3522408332683881010}
   - component: {fileID: 8144032245262961696}
   - component: {fileID: 3750173117920590927}
-  - component: {fileID: 4190110664661549119}
-  - component: {fileID: 5959413525862975933}
-  - component: {fileID: 3750173117920590922}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -598,52 +595,6 @@ MonoBehaviour:
   cooltime: 0
   oilmator: 0
   oilUInum: 0
---- !u!65 &4190110664661549119
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3750173117920590923}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.2, z: 2}
-  m_Center: {x: 0, y: 0.6, z: 0}
---- !u!114 &5959413525862975933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3750173117920590923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b10d8c0ef17caf442a1cd86158ff12b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newPrefab: {fileID: 2623992424312043646, guid: 7aaf01e420acaa14498adca954606a1b,
-    type: 3}
-  Player_action: {fileID: 0}
-  PushKey: z
-  offsetX: 0
-  offsetY: 0
-  offsetZ: 3
-  oil: 0
---- !u!114 &3750173117920590922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3750173117920590923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3410786d8a5f0774ca9058e5503fe484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SlopeTag: 
 --- !u!1 &3983282000144686394
 GameObject:
   m_ObjectHideFlags: 0
