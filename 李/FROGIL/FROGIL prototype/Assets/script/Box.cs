@@ -13,8 +13,6 @@ public class Box : MonoBehaviour
     // 対象設定
     //***********
     public string OilTag;    //油
-    public string switchTag;
-    public GameObject Slope1;
 
    //オブジェクトに油を当ててから表示されるUI
     public GameObject showobject;
@@ -92,20 +90,12 @@ public class Box : MonoBehaviour
 
 
         }
-        
-
-        if (collider.gameObject.tag == switchTag)
-        {
-            Slope1.SetActive(true);
-        }
-
-
     }
 
     void oiloff()
     {
         oilflag = false;
-        rbody.constraints = RigidbodyConstraints.FreezeAll;
+        rbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
     }
 
 }

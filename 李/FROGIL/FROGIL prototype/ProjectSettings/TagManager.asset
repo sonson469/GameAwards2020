@@ -19,6 +19,7 @@ TagManager:
   - Box ice
   - BreakWall
   - Box oil
+  - DownWall
   layers:
   - Default
   - TransparentFX

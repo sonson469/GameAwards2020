@@ -16,8 +16,8 @@ public class Boxice : MonoBehaviour
     public string OilTag;    //油
 
     //オブジェクトに油を当ててから表示されるUI
-    GameObject showobject;
-    GameObject showObject2;
+    public GameObject showobject;
+    public GameObject showObject2;
 
     //***********
     // フラグ
@@ -40,9 +40,9 @@ public class Boxice : MonoBehaviour
     {
         rbody = this.GetComponent<Rigidbody>();
 
-        showobject = GameObject.Find("ObjectOil_5");
+        //showobject = GameObject.Find("ObjectOil_5");
+        //showObject2 = GameObject.Find("ObjectOil_5sotowaku");
 
-        showObject2 = GameObject.Find("ObjectOil_5sotowaku");
         if (showobject)
         {
             showobject.SetActive(false);
@@ -89,6 +89,6 @@ public class Boxice : MonoBehaviour
     void oiloff()
     {
         oilflag = false;
-        rbody.constraints = RigidbodyConstraints.FreezeAll;
+        rbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
     }
 }

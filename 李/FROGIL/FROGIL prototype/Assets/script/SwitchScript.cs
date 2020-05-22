@@ -9,10 +9,12 @@ using UnityEngine;
 public class SwitchScript : MonoBehaviour
 {
 
-    public string BoxTag;
-    public GameObject Create;
+    public string PushTag;
+    public GameObject Target;
 
-    public int num;       //1 生成 2 消す
+    public rbodyScript targetrbody;
+
+    public int num;       //1 生成 2 消す 3 落とす
 
     // Start is called before the first frame update
     void Start()
@@ -33,19 +35,29 @@ public class SwitchScript : MonoBehaviour
     {
         if (num == 1)   //作る
         {
-            if (collider.gameObject.tag == BoxTag)
+            if (collider.gameObject.tag == PushTag)
             {
 
-                Create.SetActive(true);
+                Target.SetActive(true);
 
             }
         }
         if(num == 2)    //消す
         {
-            if (collider.gameObject.tag == BoxTag)
+            if (collider.gameObject.tag == PushTag)
             {
 
-                Create.SetActive(false);
+                Target.SetActive(false);
+
+            }
+        }
+        if (num == 3)    //落とす
+        {
+            if (collider.gameObject.tag == PushTag)
+            {
+
+                targetrbody.rbody.constraints = RigidbodyConstraints.None;
+                targetrbody.rbody.constraints = RigidbodyConstraints.FreezeRotation;
 
             }
         }
