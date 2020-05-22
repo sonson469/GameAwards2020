@@ -1,12 +1,4 @@
-canvus内image
-Oil_Move10
-Oil_Move10waku
-Oil_Move5
-Oil_Move5waku
-
 script
-Box 
-Boxice
-UIChase
+Foever_Move_cos
 
-UIChaseは各UIにアタッチして各UIのinspectorのtargetobjectに追従させるObject名を書く
+往復させたいオブジェクトにアタッチinspectorで往復時間と速度を変えられるからよきかんじに
