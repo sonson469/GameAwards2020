@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8504485712450090500}
   - component: {fileID: 8504485712450090501}
   - component: {fileID: 8504485712450090506}
-  - component: {fileID: 8504485712450090503}
+  - component: {fileID: 7838858094700592476}
   m_Layer: 0
   m_Name: bridgh_
   m_TagString: Untagged
@@ -80,8 +80,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &8504485712450090503
-CapsuleCollider:
+--- !u!65 &7838858094700592476
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -90,7 +90,6 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.007650894
-  m_Height: 0.021206276
-  m_Direction: 2
-  m_Center: {x: 0.01530853, y: -0.00037688567, z: 0.0000004687971}
+  serializedVersion: 2
+  m_Size: {x: 0.0062640975, y: 0.01999748, z: 0.020000003}
+  m_Center: {x: -0.003132029, y: -0.0000012653245, z: -0.000000003092329}

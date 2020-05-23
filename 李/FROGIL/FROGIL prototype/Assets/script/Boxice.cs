@@ -55,7 +55,7 @@ public class Boxice : MonoBehaviour
     {
         if (oilflag == true)
         {
-            this.showobject.GetComponent<Image>().fillAmount -= 0.00089f;
+            this.showobject.GetComponent<Image>().fillAmount -= 0.2f * Time.deltaTime;
         }
         if (oilflag == false)
         {

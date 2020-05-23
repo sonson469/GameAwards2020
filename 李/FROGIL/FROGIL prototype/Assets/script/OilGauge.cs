@@ -6,6 +6,11 @@ using UnityEngine.UI;
 public class OilGauge : MonoBehaviour
 {
 
+    //油3回のとき
+    public GameObject oilGauge31;
+    public GameObject oilGauge32;
+    public GameObject oilGauge33;
+
     //油5回のとき
     public GameObject oilGauge51;
     public GameObject oilGauge52;
@@ -36,6 +41,32 @@ public class OilGauge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //**************
+        //油5回のとき
+        //**************
+        if (oilaction.num == 3)
+        {
+            if (oilaction.oilUInum3 == 3)
+            {
+                oilGauge33.SetActive(true);
+            }
+            if (oilaction.oilUInum3 == 2)
+            {
+                oilGauge33.SetActive(false);
+                oilGauge32.SetActive(true);
+            }
+            if (oilaction.oilUInum3 == 1)
+            {
+                oilGauge32.SetActive(false);
+                oilGauge31.SetActive(true);
+            }
+            if (oilaction.oilUInum3 == 0)
+            {
+                oilGauge31.SetActive(false);
+                oilGauge33.SetActive(true);
+            }
+        }
 
         //**************
         //油5回のとき

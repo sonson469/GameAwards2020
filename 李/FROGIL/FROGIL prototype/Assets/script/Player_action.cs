@@ -17,9 +17,11 @@ public class Player_action : MonoBehaviour
     public float cooltime;
     public float oilmator;
     public float oilmator5;
+    public float oilmator3;
     //油UI用番号
     public int oilUInum;
     public int oilUInum5;
+    public int oilUInum3;
 
     //油何回使うか
     public int num = 8;
@@ -33,8 +35,10 @@ public class Player_action : MonoBehaviour
         cooltime = 0.0f;
         oilmator = 8.0f;
         oilmator5 = 5.0f;
+        oilmator3 = 3.0f;
         oilUInum = 8;
         oilUInum5 = 5;
+        oilUInum3 = 3;
     }
 
     // Update is called once per frame
@@ -111,6 +115,40 @@ public class Player_action : MonoBehaviour
                 }
             }
 
+            //油使用回数3回
+            if (num == 3)
+            {
+
+                if (pushflag == false && Use == true && oilmator3 > 0.0f)
+                {
+                    pushflag = true;
+                    //Use = false;
+                    oilmator3 -= 1.0f;
+                    oilUInum3 -= 1;
+
+                    Vector3 newpos = this.transform.position;
+
+                    Vector3 offset = new Vector3(offsetX, offsetY, offsetZ);
+
+                    offset = this.transform.rotation * offset;
+                    newpos = newpos + offset;
+
+                    //プレハブからゲームオブジェクトcreate
+                    GameObject newGameObject = Instantiate(newPrefab) as GameObject;
+                    newGameObject.transform.position = newpos;
+                    //投げる
+                    //Rigidbody rbody = newGameObject.GetComponent<Rigidbody>();
+                    Vector3 throwV = new Vector3(throwX, throwY, throwZ);
+                    throwV = this.transform.rotation * throwV;
+                    //rbody.AddForce(throwV, ForceMode.Impulse);
+
+                    GameObject director = GameObject.Find("GameDirector");
+                    director.GetComponent<UI>().DecreseOil();
+
+
+                }
+            }
+
 
         }
         else
@@ -159,6 +197,27 @@ public class Player_action : MonoBehaviour
                 cooltime = 0.0f;
                 oilmator5 = 5.0f;
                 oilUInum5 = 5;
+            }
+        }
+
+        if (oilmator3 <= 0.0f)
+        {
+
+            Use = false;
+
+
+
+            if (Use == false)
+            {
+                cooltime += Time.deltaTime;
+
+            }
+            if (cooltime >= 5.0f)
+            {
+                Use = true;
+                cooltime = 0.0f;
+                oilmator3 = 3.0f;
+                oilUInum3 = 3;
             }
         }
 
