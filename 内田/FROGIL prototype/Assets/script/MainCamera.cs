@@ -107,21 +107,10 @@ public class MainCamera : MonoBehaviour
         //***************
         // 前後移動
         //***************
-        if (Input.GetKey(PushKeyPosMae))
-        {
-            Vector3 movepos = new Vector3(0, 0, MAspeed);
+            /*Vector3 movepos = new Vector3(0, 0, MAspeed);
             movepos = this.transform.rotation * movepos;
-            position += movepos * Time.deltaTime;
+            position += movepos * Time.deltaTime * Input.GetAxis("CameraUp");
             transform.position = position;
-            this.gameObject.transform.LookAt(center.transform);
-        }
-        if (Input.GetKey(PushKeyPosAto))
-        {
-            Vector3 movepos = new Vector3(0, 0, MAspeed);
-            movepos = this.transform.rotation * movepos;
-            position -= movepos * Time.deltaTime;
-            transform.position = position;
-            this.gameObject.transform.LookAt(center.transform);
-        }
+            this.gameObject.transform.LookAt(center.transform);*/
     }
 }

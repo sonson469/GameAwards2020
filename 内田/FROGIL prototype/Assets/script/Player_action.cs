@@ -16,8 +16,15 @@ public class Player_action : MonoBehaviour
     public bool Use;
     public float cooltime;
     public float oilmator;
+    public float oilmator5;
+    public float oilmator3;
     //油UI用番号
     public int oilUInum;
+    public int oilUInum5;
+    public int oilUInum3;
+
+    //油何回使うか
+    public int num = 8;
 
     bool pushflag = false;
 
@@ -27,44 +34,121 @@ public class Player_action : MonoBehaviour
         Use = true;
         cooltime = 0.0f;
         oilmator = 8.0f;
+        oilmator5 = 5.0f;
+        oilmator3 = 3.0f;
         oilUInum = 8;
+        oilUInum5 = 5;
+        oilUInum3 = 3;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //8回使うと５秒間使えなくなる
+        //使い切ると５秒間使えなくなる
         if(Input.GetButtonDown("Oil"))
         {
-            if(pushflag == false && Use == true && oilmator > 0.0f)
+            //油使用回数8回
+            if (num == 8)
             {
-                pushflag = true;
-                //Use = false;
-                oilmator -= 1.0f;
-                oilUInum -= 1;
 
-                Vector3 newpos = this.transform.position;
+                if (pushflag == false && Use == true && oilmator > 0.0f)
+                {
+                    pushflag = true;
+                    //Use = false;
+                    oilmator -= 1.0f;
+                    oilUInum -= 1;
 
-                Vector3 offset = new Vector3(offsetX, offsetY, offsetZ);
+                    Vector3 newpos = this.transform.position;
 
-                offset = this.transform.rotation * offset;
-                newpos = newpos + offset;
+                    Vector3 offset = new Vector3(offsetX, offsetY, offsetZ);
 
-                //プレハブからゲームオブジェクトcreate
-                GameObject newGameObject = Instantiate(newPrefab) as GameObject;
-                newGameObject.transform.position = newpos;
-                //投げる
-                //Rigidbody rbody = newGameObject.GetComponent<Rigidbody>();
-                Vector3 throwV = new Vector3(throwX, throwY, throwZ);
-                throwV = this.transform.rotation * throwV;
-                //rbody.AddForce(throwV, ForceMode.Impulse);
+                    offset = this.transform.rotation * offset;
+                    newpos = newpos + offset;
 
-                GameObject director = GameObject.Find("GameDirector");
-                director.GetComponent<UI>().DecreseOil();
-                
+                    //プレハブからゲームオブジェクトcreate
+                    GameObject newGameObject = Instantiate(newPrefab) as GameObject;
+                    newGameObject.transform.position = newpos;
+                    //投げる
+                    //Rigidbody rbody = newGameObject.GetComponent<Rigidbody>();
+                    Vector3 throwV = new Vector3(throwX, throwY, throwZ);
+                    throwV = this.transform.rotation * throwV;
+                    //rbody.AddForce(throwV, ForceMode.Impulse);
 
+                    GameObject director = GameObject.Find("GameDirector");
+                    director.GetComponent<UI>().DecreseOil();
+
+
+                }
             }
-            
+
+            //油使用回数5回
+            if (num == 5)
+            {
+
+                if (pushflag == false && Use == true && oilmator5 > 0.0f)
+                {
+                    pushflag = true;
+                    //Use = false;
+                    oilmator5 -= 1.0f;
+                    oilUInum5 -= 1;
+
+                    Vector3 newpos = this.transform.position;
+
+                    Vector3 offset = new Vector3(offsetX, offsetY, offsetZ);
+
+                    offset = this.transform.rotation * offset;
+                    newpos = newpos + offset;
+
+                    //プレハブからゲームオブジェクトcreate
+                    GameObject newGameObject = Instantiate(newPrefab) as GameObject;
+                    newGameObject.transform.position = newpos;
+                    //投げる
+                    //Rigidbody rbody = newGameObject.GetComponent<Rigidbody>();
+                    Vector3 throwV = new Vector3(throwX, throwY, throwZ);
+                    throwV = this.transform.rotation * throwV;
+                    //rbody.AddForce(throwV, ForceMode.Impulse);
+
+                    GameObject director = GameObject.Find("GameDirector");
+                    director.GetComponent<UI>().DecreseOil();
+
+
+                }
+            }
+
+            //油使用回数3回
+            if (num == 3)
+            {
+
+                if (pushflag == false && Use == true && oilmator3 > 0.0f)
+                {
+                    pushflag = true;
+                    //Use = false;
+                    oilmator3 -= 1.0f;
+                    oilUInum3 -= 1;
+
+                    Vector3 newpos = this.transform.position;
+
+                    Vector3 offset = new Vector3(offsetX, offsetY, offsetZ);
+
+                    offset = this.transform.rotation * offset;
+                    newpos = newpos + offset;
+
+                    //プレハブからゲームオブジェクトcreate
+                    GameObject newGameObject = Instantiate(newPrefab) as GameObject;
+                    newGameObject.transform.position = newpos;
+                    //投げる
+                    //Rigidbody rbody = newGameObject.GetComponent<Rigidbody>();
+                    Vector3 throwV = new Vector3(throwX, throwY, throwZ);
+                    throwV = this.transform.rotation * throwV;
+                    //rbody.AddForce(throwV, ForceMode.Impulse);
+
+                    GameObject director = GameObject.Find("GameDirector");
+                    director.GetComponent<UI>().DecreseOil();
+
+
+                }
+            }
+
 
         }
         else
@@ -94,6 +178,48 @@ public class Player_action : MonoBehaviour
                 oilUInum = 8;
             }
         }
-        
+
+        if (oilmator5 <= 0.0f)
+        {
+
+            Use = false;
+
+
+
+            if (Use == false)
+            {
+                cooltime += Time.deltaTime;
+
+            }
+            if (cooltime >= 5.0f)
+            {
+                Use = true;
+                cooltime = 0.0f;
+                oilmator5 = 5.0f;
+                oilUInum5 = 5;
+            }
+        }
+
+        if (oilmator3 <= 0.0f)
+        {
+
+            Use = false;
+
+
+
+            if (Use == false)
+            {
+                cooltime += Time.deltaTime;
+
+            }
+            if (cooltime >= 5.0f)
+            {
+                Use = true;
+                cooltime = 0.0f;
+                oilmator3 = 3.0f;
+                oilUInum3 = 3;
+            }
+        }
+
     }
 }

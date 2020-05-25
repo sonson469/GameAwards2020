@@ -57,6 +57,6 @@ public class Boxoil : MonoBehaviour
     void oiloff()
     {
         oilflag = false;
-        rbody.constraints = RigidbodyConstraints.FreezeAll;
+        rbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
     }
 }
