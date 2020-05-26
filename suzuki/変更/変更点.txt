@@ -1,4 +1,1 @@
-script
-Foever_Move_cos
-
-往復させたいオブジェクトにアタッチinspectorで往復時間と速度を変えられるからよきかんじに
+stage3
