@@ -20,6 +20,7 @@ TagManager:
   - BreakWall
   - Box oil
   - DownWall
+  - BoxAll
   layers:
   - Default
   - TransparentFX

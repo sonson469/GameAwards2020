@@ -34,7 +34,7 @@ public class RESULT : MonoBehaviour
     void Update()
     {
 
-        TimeText.GetComponent<Text>().text = "TIME : " + ((int)timetext).ToString("000");
+        TimeText.GetComponent<Text>().text = ":  " + ((int)timetext).ToString("000");
 
     }
 }

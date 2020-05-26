@@ -96,6 +96,7 @@
     <Compile Include="Assets\script\start.cs" />
     <Compile Include="Assets\script\tongue.cs" />
     <None Include="Assets\EasyGrassSubstance\Documentation.txt" />
+    <None Include="Assets\Five Seamless Tileable Ground Textures\read me.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/sonso/Desktop/FROGIL/FROGIL prototype/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
