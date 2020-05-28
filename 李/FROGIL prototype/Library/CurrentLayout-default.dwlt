@@ -75,7 +75,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 164
+  controlID: 96
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_MinSize: {x: 709, y: 492}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 1
-  controlID: 108
+  controlID: 164
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_MinSize: {x: 709, y: 492}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 109
+  controlID: 165
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -507,20 +507,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\sonso\Desktop\FROGIL\FROGIL prototype
+  m_LastProjectPath: "C:\\Users\\szkai\\Documents\\GitHub\\GameAwards2020\\\u674E\\FROGIL
+    prototype"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 314}
-    m_SelectedIDs: b23c0000
-    m_LastClickedID: 15538
-    m_ExpandedIDs: 000000002e3c0000303c0000323c0000343c0000363c0000383c00003a3c00003c3c00003e3c0000643c0000983c0000a83c0000aa3c000000ca9a3b
+    scrollPos: {x: 0, y: 31}
+    m_SelectedIDs: d2490000
+    m_LastClickedID: 18898
+    m_ExpandedIDs: 00000000d2490000d4490000d6490000d8490000da490000dc490000de490000e0490000e2490000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -548,7 +549,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002e3c0000303c0000323c0000343c0000363c0000383c00003a3c00003c3c00003e3c0000
+    m_ExpandedIDs: 00000000d2490000d4490000d6490000d8490000da490000dc490000de490000e0490000e2490000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -575,7 +576,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000823600007a3a0000263b000008360000e4550000d45500008a3a0000903a0000eab90100343f0000563f00003c350000ec360000603400002a760000c43c00004c4000005e5800003297000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -671,9 +672,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 3a410000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: f091fcffc697fcff3698fcffbea4fcffb8adfcffa0b7fcff1ac1fcff2cc1fcffecc6fcff54ccfcffc4d5fcff80e3fcff36f7fcffa4fdfcffa811fdff3a19fdff6c19fdff9619fdff2a23fdff742bfdff5431fdff6a3afdfff643fdff504cfdff2052fdff265bfdffe264fdffc26efdffe47afdff848efdff0497fdff7cdefdffcadefdffcae6fdffd233feff8838feffdc38feffca39ffff863effff6c52ffffde59ffffe659ffff3c5affff2a62ffff9a77ffff32fbffff3efbffff50fbffff72fbffff8e340000c43500005236000002ca000050ee0000e44f0100be800100c2800100d29f0100d69f010096c6010048c7010032df01003edf0100
+      m_ExpandedIDs: f8adffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
