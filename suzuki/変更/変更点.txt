@@ -1,1 +1,11 @@
-stage3
+Player_actionのinspector内
+throw_x 0
+throw_y 2
+throw_z 1
+
+offset_x 0 
+offset_y 2
+offset_z 2
+
+oil1オブジェクト内
+freeze rotationのチェックボックス外す
