@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //*********************************
-// 油がかかると動く箱(氷)
+// 油がかかると動く箱(めっちゃ滑る)
 //*********************************
 
 public class Boxoil : MonoBehaviour
@@ -55,10 +55,19 @@ public class Boxoil : MonoBehaviour
     {
         if (oilflag == true)
         {
-            this.showobject.GetComponent<Image>().fillAmount -= 0.2f * Time.deltaTime;
+            rbody.constraints = RigidbodyConstraints.None;
+            rbody.constraints = RigidbodyConstraints.FreezeRotation;
+            showobject.SetActive(true);
+            showObject2.SetActive(true);
+            this.showobject.GetComponent<Image>().fillAmount -= 0.1f * Time.deltaTime;
+        }
+        if(this.showobject.GetComponent<Image>().fillAmount <= 0)
+        {
+            oilflag = false;
         }
         if (oilflag == false)
         {
+            rbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
             showobject.SetActive(false);
             showObject2.SetActive(false);
             this.showobject.GetComponent<Image>().fillAmount = 1.0f;
@@ -72,23 +81,9 @@ public class Boxoil : MonoBehaviour
     {
         if (collider.gameObject.tag == OilTag)
         {
-            if (oilflag == false)
-            {
-                rbody.constraints = RigidbodyConstraints.None;
-                rbody.constraints = RigidbodyConstraints.FreezeRotation;
-                oilflag = true;
-                Invoke("oiloff", oillimit);
-            }
+            oilflag = true;
 
-            showobject.SetActive(true);
-            showObject2.SetActive(true);
-            Invoke("Update", 5);
+            
         }
-    }
-
-    void oiloff()
-    {
-        oilflag = false;
-        rbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
     }
 }

@@ -972,7 +972,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3026248932440960400}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 390, z: 0}
+  m_LocalPosition: {x: 0, y: 400, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
   m_Children:
   - {fileID: 7361690064313947748}
@@ -1117,7 +1117,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 31e781536e2bc89479fa3b08cb99007a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ef93f1b8ac832214895224b939974660, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1456,7 +1456,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4798963286789676724}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 150, y: 690, z: 0}
+  m_LocalPosition: {x: 150, y: 700, z: 0}
   m_LocalScale: {x: 30, y: 30, z: 1}
   m_Children:
   - {fileID: 5813027531196251888}
@@ -1527,6 +1527,7 @@ MonoBehaviour:
   oilGauge87: {fileID: 6923725991465968872}
   oilGauge88: {fileID: 23562272390601319}
   oilaction: {fileID: 0}
+  supply: {fileID: 0}
 --- !u!1 &5849034554436665809
 GameObject:
   m_ObjectHideFlags: 0

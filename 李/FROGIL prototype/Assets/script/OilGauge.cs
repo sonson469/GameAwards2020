@@ -31,6 +31,7 @@ public class OilGauge : MonoBehaviour
 
     //スクリプト
     public Player_action oilaction;
+    public OilSupply supply;
 
     // Start is called before the first frame update
     void Start()
@@ -43,28 +44,35 @@ public class OilGauge : MonoBehaviour
     {
 
         //**************
-        //油5回のとき
+        //油3回のとき
         //**************
         if (oilaction.num == 3)
         {
-            if (oilaction.oilUInum3 == 3)
+            if (supply.SupplyFlag)
             {
                 oilGauge33.SetActive(true);
             }
-            if (oilaction.oilUInum3 == 2)
+            else
             {
-                oilGauge33.SetActive(false);
-                oilGauge32.SetActive(true);
-            }
-            if (oilaction.oilUInum3 == 1)
-            {
-                oilGauge32.SetActive(false);
-                oilGauge31.SetActive(true);
-            }
-            if (oilaction.oilUInum3 == 0)
-            {
-                oilGauge31.SetActive(false);
-                oilGauge33.SetActive(true);
+                if (oilaction.oilUInum3 == 3)
+                {
+                    oilGauge33.SetActive(true);
+                }
+                if (oilaction.oilUInum3 == 2)
+                {
+                    oilGauge33.SetActive(false);
+                    oilGauge32.SetActive(true);
+                }
+                if (oilaction.oilUInum3 == 1)
+                {
+                    oilGauge32.SetActive(false);
+                    oilGauge31.SetActive(true);
+                }
+                if (oilaction.oilUInum3 == 0)
+                {
+                    oilGauge31.SetActive(false);
+                    oilGauge33.SetActive(true);
+                }
             }
         }
 
@@ -73,35 +81,41 @@ public class OilGauge : MonoBehaviour
         //**************
         if (oilaction.num == 5)
         {
-
-            if (oilaction.oilUInum5 == 5)
+            if (supply.SupplyFlag)
             {
                 oilGauge55.SetActive(true);
             }
-            if (oilaction.oilUInum5 == 4)
+            else
             {
-                oilGauge55.SetActive(false);
-                oilGauge54.SetActive(true);
-            }
-            if (oilaction.oilUInum5 == 3)
-            {
-                oilGauge54.SetActive(false);
-                oilGauge53.SetActive(true);
-            }
-            if (oilaction.oilUInum5 == 2)
-            {
-                oilGauge53.SetActive(false);
-                oilGauge52.SetActive(true);
-            }
-            if (oilaction.oilUInum5 == 1)
-            {
-                oilGauge52.SetActive(false);
-                oilGauge51.SetActive(true);
-            }
-            if (oilaction.oilUInum5 == 0)
-            {
-                oilGauge51.SetActive(false);
-                oilGauge55.SetActive(true);
+                if (oilaction.oilUInum5 == 5)
+                {
+                    oilGauge55.SetActive(true);
+                }
+                if (oilaction.oilUInum5 == 4)
+                {
+                    oilGauge55.SetActive(false);
+                    oilGauge54.SetActive(true);
+                }
+                if (oilaction.oilUInum5 == 3)
+                {
+                    oilGauge54.SetActive(false);
+                    oilGauge53.SetActive(true);
+                }
+                if (oilaction.oilUInum5 == 2)
+                {
+                    oilGauge53.SetActive(false);
+                    oilGauge52.SetActive(true);
+                }
+                if (oilaction.oilUInum5 == 1)
+                {
+                    oilGauge52.SetActive(false);
+                    oilGauge51.SetActive(true);
+                }
+                if (oilaction.oilUInum5 == 0)
+                {
+                    oilGauge51.SetActive(false);
+                    oilGauge55.SetActive(true);
+                }
             }
         }
 
@@ -110,50 +124,56 @@ public class OilGauge : MonoBehaviour
         //***********
         if (oilaction.num == 8)
         {
-
-            if (oilaction.oilUInum == 8)
+            if (supply.SupplyFlag)
             {
                 oilGauge88.SetActive(true);
             }
-            if (oilaction.oilUInum == 7)
+            else
             {
-                oilGauge88.SetActive(false);
-                oilGauge87.SetActive(true);
-            }
-            if (oilaction.oilUInum == 6)
-            {
-                oilGauge87.SetActive(false);
-                oilGauge86.SetActive(true);
-            }
-            if (oilaction.oilUInum == 5)
-            {
-                oilGauge86.SetActive(false);
-                oilGauge85.SetActive(true);
-            }
-            if (oilaction.oilUInum == 4)
-            {
-                oilGauge85.SetActive(false);
-                oilGauge84.SetActive(true);
-            }
-            if (oilaction.oilUInum == 3)
-            {
-                oilGauge84.SetActive(false);
-                oilGauge83.SetActive(true);
-            }
-            if (oilaction.oilUInum == 2)
-            {
-                oilGauge83.SetActive(false);
-                oilGauge82.SetActive(true);
-            }
-            if (oilaction.oilUInum == 1)
-            {
-                oilGauge82.SetActive(false);
-                oilGauge81.SetActive(true);
-            }
-            if (oilaction.oilUInum == 0)
-            {
-                oilGauge81.SetActive(false);
-                oilGauge88.SetActive(true);
+                if (oilaction.oilUInum == 8)
+                {
+                    oilGauge88.SetActive(true);
+                }
+                if (oilaction.oilUInum == 7)
+                {
+                    oilGauge88.SetActive(false);
+                    oilGauge87.SetActive(true);
+                }
+                if (oilaction.oilUInum == 6)
+                {
+                    oilGauge87.SetActive(false);
+                    oilGauge86.SetActive(true);
+                }
+                if (oilaction.oilUInum == 5)
+                {
+                    oilGauge86.SetActive(false);
+                    oilGauge85.SetActive(true);
+                }
+                if (oilaction.oilUInum == 4)
+                {
+                    oilGauge85.SetActive(false);
+                    oilGauge84.SetActive(true);
+                }
+                if (oilaction.oilUInum == 3)
+                {
+                    oilGauge84.SetActive(false);
+                    oilGauge83.SetActive(true);
+                }
+                if (oilaction.oilUInum == 2)
+                {
+                    oilGauge83.SetActive(false);
+                    oilGauge82.SetActive(true);
+                }
+                if (oilaction.oilUInum == 1)
+                {
+                    oilGauge82.SetActive(false);
+                    oilGauge81.SetActive(true);
+                }
+                if (oilaction.oilUInum == 0)
+                {
+                    oilGauge81.SetActive(false);
+                    oilGauge88.SetActive(true);
+                }
             }
         }
 

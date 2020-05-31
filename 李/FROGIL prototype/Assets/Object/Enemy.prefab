@@ -666,7 +666,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e744f73d56989604e8edc3e5e5b55c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   tagname: action
   DefTag: {fileID: 3270005143666600089}
   OilTag: {fileID: 4373112207862955315}
@@ -694,8 +693,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.0336633, y: 3.1755629, z: 2.7540624}
-  m_Center: {x: 0.45345998, y: 1.5877814, z: -0.105594754}
+  m_Size: {x: 4.3228564, y: 3.1755629, z: 2.7540624}
+  m_Center: {x: 0.71209526, y: 1.5877814, z: -0.105594754}
 --- !u!114 &5897675818717856251
 MonoBehaviour:
   m_ObjectHideFlags: 0

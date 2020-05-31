@@ -8,9 +8,12 @@ public class Tongue1 : MonoBehaviour
     // ターゲットオブジェクトのTransformを格納する変数
     public Transform target;
 
-    //ｚ移動
-    private float plusz;
-    private float minusz;
+    //下移動中
+    private float plus;
+    public float minus;
+    private float stoptime;
+    //舌が出て若干止まる
+    private bool stop = false;
     //変動幅
     public float movemax;
     //舌が出る速度
@@ -19,8 +22,11 @@ public class Tongue1 : MonoBehaviour
     //キー
     public string PushKey;
 
+    //格納用
+    Vector3 position;
+
     //押してる状態か
-   // private bool pushflag = false;
+    // private bool pushflag = false;
 
     //舌を出してるか
     public bool action;
@@ -35,16 +41,23 @@ public class Tongue1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        plus = 0f;
+        minus = 0f;
+        stoptime = 0f;
+
+        position = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    void FixedUpdate()
+    {
         // オブジェクトの座標を格納
-        Vector3 position = transform.position;
-        Vector3 forward = transform.forward;
+        position = transform.position;
 
         // 舌を出してない
         if (action == false)
@@ -59,7 +72,43 @@ public class Tongue1 : MonoBehaviour
         else
         {
             //舌前進
-            if (plusz <= movemax)
+            if (player.tongueflagMae)
+            {
+                plus += speed * Time.deltaTime;
+                this.transform.position += this.gameObject.transform.forward * speed * Time.deltaTime;
+                if (plus >= 1.8f)
+                {
+                    player.tongueflagMae = false;
+                    stop = true;
+                }
+            }
+            if (stop)
+            {
+                stoptime += Time.deltaTime;
+                if (stoptime >= 0.7f)
+                {
+                    stop = false;
+                    player.tongueflagUsiro = true;
+                }
+            }
+            if (player.tongueflagUsiro)
+            {
+                minus += speed * Time.deltaTime;
+                this.transform.position -= this.gameObject.transform.forward * speed * Time.deltaTime;
+                if (minus >= 1.8f)
+                {
+                    action = false;
+                    plus = 0f;
+                    minus = 0f;
+                    stoptime = 0f;
+                    this.gameObject.SetActive(false);
+                    player.tongueflagUsiro = false;
+                    player.stop = false;
+                }
+            }
+
+            //舌前進
+            /*if (plusz <= movemax)
             {
                 plusz += speed * Time.deltaTime;
                 Vector3 move = new Vector3(0, 0, plusz);
@@ -88,17 +137,17 @@ public class Tongue1 : MonoBehaviour
                     this.gameObject.SetActive(false);
                     player.tongueflag = false;
                 }
-            }
+            }*/
 
         }
 
         //舌を出す
-        if(player.stop == true)
+        if (player.stop == true)
         {
-            if(action == false)
+            if (action == false)
             {
                 //座標を整える
-                Vector3 pos = new Vector3(0, 0, 1.0f);
+                Vector3 pos = new Vector3(0, 0, 0.87f);
                 pos = this.transform.rotation * pos;
                 position += pos;
                 // positionの値をオブジェクト座標に格納
@@ -108,7 +157,6 @@ public class Tongue1 : MonoBehaviour
 
             }
         }
-
     }
 
     //****************
@@ -117,5 +165,6 @@ public class Tongue1 : MonoBehaviour
     void Action()
     {
         action = true;
+        player.tongueflagMae = true;
     }
 }
