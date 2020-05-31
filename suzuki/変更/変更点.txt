@@ -1,11 +1,5 @@
-Player_actionのinspector内
-throw_x 0
-throw_y 2
-throw_z 1
+Grass fire内で起こす火をパーティクルに変更
 
-offset_x 0 
-offset_y 2
-offset_z 2
+草が消える時間を５秒後(火の燃えてる時間)に変更
 
-oil1オブジェクト内
-freeze rotationのチェックボックス外す
+パーティクルが小さいので３つ使用
