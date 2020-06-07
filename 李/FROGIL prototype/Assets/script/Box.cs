@@ -12,22 +12,26 @@ public class Box : MonoBehaviour
     //***********
     // 対象設定
     //***********
-    public string OilTag;    //油
+    public string  OilTag;    //油
 
    //オブジェクトに油を当ててから表示されるUI
     public GameObject showobject;
     public GameObject showObject2;
+    //通常状態
+    public GameObject DefTag;
+    //油状態
+    public GameObject AburaTag;
 
     //***********
     // フラグ
     //***********
     public bool oilflag = false;          //油がかかった
-
+    
 
     //********************
     // コンポーネント用
     //********************
-    private Rigidbody rbody;
+    public Rigidbody rbody;
 
     //*******************
     // その他変数
@@ -47,7 +51,8 @@ public class Box : MonoBehaviour
         if (showobject)
         {
             showobject.SetActive(false);
-            showObject2.SetActive(false);
+            showobject.SetActive(false);
+
         }
         
 
@@ -59,12 +64,36 @@ public class Box : MonoBehaviour
         
         if (oilflag == true)
         {
+            rbody.constraints = RigidbodyConstraints.None;
+            rbody.constraints = RigidbodyConstraints.FreezeRotation;
+
+            AburaTag.SetActive(true);
+            DefTag.SetActive(false);
+            
+            showobject.SetActive(true);
+            showObject2.SetActive(true);
+
+
             this.showobject.GetComponent<Image>().fillAmount -= 0.1f * Time.deltaTime;
+        
         }
+        if(this.showobject.GetComponent<Image>().fillAmount <= 0)
+        {
+
+            oilflag = false;
+        }
+
         if(oilflag == false)
         {
+
+            rbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+            AburaTag.SetActive(false);
+            DefTag.SetActive(true);
+
             showobject.SetActive(false);
             showObject2.SetActive(false);
+
+          
             this.showobject.GetComponent<Image>().fillAmount = 1.0f;
         }
         
@@ -78,24 +107,9 @@ public class Box : MonoBehaviour
         if (collider.gameObject.tag == OilTag)
         {
 
-            rbody.constraints = RigidbodyConstraints.None;
-            rbody.constraints = RigidbodyConstraints.FreezeRotation;
             oilflag = true;
-            Invoke("oiloff", oillimit);
-
-            showobject.SetActive(true);
-            showObject2.SetActive(true);
-            //Invoke("Update", 10);
-            
-
-
+          
         }
-    }
-
-    void oiloff()
-    {
-        oilflag = false;
-        rbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
     }
 
 }

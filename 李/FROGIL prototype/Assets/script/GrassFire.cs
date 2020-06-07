@@ -9,6 +9,8 @@ public class GrassFire : MonoBehaviour
 
     //燃やすやつ
     public GameObject Fire;
+    public GameObject Fire2;
+    public GameObject Fire3;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +30,9 @@ public class GrassFire : MonoBehaviour
         {
 
             Fire.SetActive(true);
-            Destroy(this.gameObject);
+            Fire2.SetActive(true);
+            Fire3.SetActive(true);
+            Destroy(this.gameObject,5);
 
         }
     }

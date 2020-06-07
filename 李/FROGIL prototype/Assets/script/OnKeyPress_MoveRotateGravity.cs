@@ -20,6 +20,8 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     Vector3 direction;
 
     //舌ON
+    public bool tongueflagMae;
+    public bool tongueflagUsiro;
     public bool tongueflag;
 
     //****************
@@ -29,6 +31,7 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
 	bool pushFlag = false;                // スペースキーを押しっぱなしかどうか
 	bool jumpFlag = false;                // ジャンプ状態かどうか
     public bool groundFlag = true;              // 足が何かに触れているかどうか
+    //bool jumpAnimation = false;
 
     //***********
     // キー取得
@@ -39,6 +42,7 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     // 当たり判定対象
     //*********************
     public string Stage;
+    public string Ground;
 
     //*******************
     // 他スクリプト取得
@@ -94,14 +98,12 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
         }
         if (Input.GetButtonDown("Tongue"))
         {
-
-            tongueflag = true;
+            animator.SetBool("TongueStart", true);
             stop = true;
-            tonguetag.SetActive(true);
+            animator.SetBool("TongueStart", false);
+            animator.SetBool("TongueOpen", true);
+            Invoke("tongueset", 0.4f);
         }
-
-        animator.SetBool("Tongue", tongueflag);
-
 
 
         //************
@@ -112,13 +114,18 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
 		{
 			if (pushFlag == false) // 押しっぱなしでなければ
 			{
+                groundFlag = false;
 				pushFlag = true; // 押した状態に
 				jumpFlag = true; // ジャンプの準備
-			}
+                animator.SetBool("Walk", false);
+                //jumpAnimation = true;
+                animator.SetBool("Jump", true);
+            }
 		} else
 		{
 			pushFlag = false; 	// 押した状態解除
 		}
+
     }
 
     // ずっと-------------------------------------------------------------------------------------------------------------------------------
@@ -140,6 +147,8 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
 			this.transform.Rotate(0, angle / 50, 0);
 		}*/
 
+        animator.SetBool("Walk", false);
+
         if (stop == false)
         {
             rbody.AddForce(0, -20, 0, ForceMode.Impulse);
@@ -152,8 +161,12 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
             if (diff.magnitude > 0.01f) //0のときは変わらないようにする
             {
                 transform.rotation = Quaternion.LookRotation(diff);
+                if(jumpFlag == false)
+                {
+                    animator.SetBool("Walk", true);
+                }
             }
-            animator.SetFloat("Speed", diff.magnitude);
+            //animator.SetFloat("Speed", diff.magnitude);
 
         }
 
@@ -162,15 +175,41 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
         //************
         if (jumpFlag)      // もし,ジャンプするときならジャンプする
          {
-        jumpFlag = false;
-        rbody.AddForce(new Vector3(0, jumppower, 0), ForceMode.Impulse);
+            jumpFlag = false;
+            animator.SetBool("Jump", false);
+            rbody.AddForce(new Vector3(0, jumppower, 0), ForceMode.Impulse);
          }
+        if (groundFlag)  //地面についたらジャンプしてない
+        {
+            jumpFlag = false;
+        }
+
+        //****************
+        // 舌
+        //****************
+
+        if (tongueflagUsiro)
+        {
+            animator.SetBool("TongueOpen", false);
+        }
+        if (tongue.minus >= 1f)
+        {
+            animator.SetBool("TongueClose", true);
+        }
+        if (tongueflagUsiro == false)
+        {
+            animator.SetBool("TongueClose", false);
+        }
+
     }
 
     // 足が何かに触れたら-------------------------------------------------------------------------------------------------------------------------
      private void OnCollisionEnter(Collision collision)
      {
-         groundFlag = true;
+        if (collision.gameObject.tag == Ground)
+        {
+            groundFlag = true;
+        }
      }
      // 足に何も触れなかったら----------------------------------------------------------------------------------------------------------------------
      //private void OnCollisionExit(Collision collision)
@@ -178,5 +217,9 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
          //groundFlag = false;
      //}
      
+    private void tongueset()
+    {
+        tonguetag.SetActive(true);
+    }
 
 }

@@ -1,11 +1,9 @@
-Player_actionのinspector内
-throw_x 0
-throw_y 2
-throw_z 1
+New Stage
 
-offset_x 0 
-offset_y 2
-offset_z 2
+ステージ概要
 
-oil1オブジェクト内
-freeze rotationのチェックボックス外す
+マッチを取って草を燃やし、歯車を動かしてゴールへの道を作ってゴール
+
+
+最初に左側のステージへ行き、油でBoxを上手く動かしてマッチを取る。
+その後歯車前の草を燃やし、歯車を動かしてゴール

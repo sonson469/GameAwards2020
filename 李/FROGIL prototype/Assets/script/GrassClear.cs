@@ -17,7 +17,7 @@ public class GrassClear : MonoBehaviour
         if (collision.gameObject.tag == tagname)
         {
 
-                SceneManager.LoadScene("Clear");
+                SceneManager.LoadScene("Result");
         }
     }
 

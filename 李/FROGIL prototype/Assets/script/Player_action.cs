@@ -26,6 +26,12 @@ public class Player_action : MonoBehaviour
     //油何回使うか
     public int num = 8;
 
+    //補給油
+    public GameObject SupplyObject;
+
+    //他スクリプト
+    public OilSupply Supply;
+
     bool pushflag = false;
 
     // Start is called before the first frame update
@@ -50,16 +56,15 @@ public class Player_action : MonoBehaviour
             //油使用回数8回
             if (num == 8)
             {
-
                 if (pushflag == false && Use == true && oilmator > 0.0f)
                 {
                     pushflag = true;
                     //Use = false;
                     oilmator -= 1.0f;
                     oilUInum -= 1;
-
+             
                     Vector3 newpos = this.transform.position;
-
+             
                     Vector3 offset = new Vector3(offsetX, offsetY, offsetZ);
 
                     offset = this.transform.rotation * offset;
@@ -69,15 +74,12 @@ public class Player_action : MonoBehaviour
                     GameObject newGameObject = Instantiate(newPrefab) as GameObject;
                     newGameObject.transform.position = newpos;
                     //投げる
-                    //Rigidbody rbody = newGameObject.GetComponent<Rigidbody>();
+                    Rigidbody rbody = newGameObject.GetComponent<Rigidbody>();
                     Vector3 throwV = new Vector3(throwX, throwY, throwZ);
                     throwV = this.transform.rotation * throwV;
-                    //rbody.AddForce(throwV, ForceMode.Impulse);
-
+                    rbody.AddForce(throwV, ForceMode.Impulse);
                     GameObject director = GameObject.Find("GameDirector");
                     director.GetComponent<UI>().DecreseOil();
-
-
                 }
             }
 
@@ -103,10 +105,10 @@ public class Player_action : MonoBehaviour
                     GameObject newGameObject = Instantiate(newPrefab) as GameObject;
                     newGameObject.transform.position = newpos;
                     //投げる
-                    //Rigidbody rbody = newGameObject.GetComponent<Rigidbody>();
+                    Rigidbody rbody = newGameObject.GetComponent<Rigidbody>();
                     Vector3 throwV = new Vector3(throwX, throwY, throwZ);
                     throwV = this.transform.rotation * throwV;
-                    //rbody.AddForce(throwV, ForceMode.Impulse);
+                    rbody.AddForce(throwV, ForceMode.Impulse);
 
                     GameObject director = GameObject.Find("GameDirector");
                     director.GetComponent<UI>().DecreseOil();
@@ -137,10 +139,10 @@ public class Player_action : MonoBehaviour
                     GameObject newGameObject = Instantiate(newPrefab) as GameObject;
                     newGameObject.transform.position = newpos;
                     //投げる
-                    //Rigidbody rbody = newGameObject.GetComponent<Rigidbody>();
+                    Rigidbody rbody = newGameObject.GetComponent<Rigidbody>();
                     Vector3 throwV = new Vector3(throwX, throwY, throwZ);
                     throwV = this.transform.rotation * throwV;
-                    //rbody.AddForce(throwV, ForceMode.Impulse);
+                    rbody.AddForce(throwV, ForceMode.Impulse);
 
                     GameObject director = GameObject.Find("GameDirector");
                     director.GetComponent<UI>().DecreseOil();
@@ -158,66 +160,62 @@ public class Player_action : MonoBehaviour
 
         }
 
-        if (oilmator <= 0.0f)
+        if (num == 8)
         {
-
-            Use = false;
-
-
-
-            if (Use == false)
+            if (Supply.SupplyFlag)
             {
+
+                Use = false;
                 cooltime += Time.deltaTime;
-
-            }
-            if (cooltime >= 5.0f)
-            {
-                Use = true;
-                cooltime = 0.0f;
-                oilmator = 8.0f;
-                oilUInum = 8;
+                if (cooltime >= 5.0f)
+                {
+                    Supply.SupplyFlag = false;
+                    SupplyObject.SetActive(true);
+                    Use = true;
+                    cooltime = 0.0f;
+                    oilmator = 8.0f;
+                    oilUInum = 8;
+                }
             }
         }
 
-        if (oilmator5 <= 0.0f)
+        if(num == 5)
         {
-
-            Use = false;
-
-
-
-            if (Use == false)
+            if (Supply.SupplyFlag)
             {
+
+                Use = false;
                 cooltime += Time.deltaTime;
-
-            }
-            if (cooltime >= 5.0f)
-            {
-                Use = true;
-                cooltime = 0.0f;
-                oilmator5 = 5.0f;
-                oilUInum5 = 5;
+                if (cooltime >= 5.0f)
+                {
+                    Supply.SupplyFlag = false;
+                    SupplyObject.SetActive(true);
+                    Use = true;
+                    cooltime = 0.0f;
+                    oilmator5 = 5.0f;
+                    oilUInum5 = 5;
+                }
             }
         }
 
-        if (oilmator3 <= 0.0f)
+        if(num == 3)
         {
-
-            Use = false;
-
-
-
-            if (Use == false)
+            if (Supply.SupplyFlag)
             {
+
+                Use = false;
                 cooltime += Time.deltaTime;
 
-            }
-            if (cooltime >= 5.0f)
-            {
-                Use = true;
-                cooltime = 0.0f;
-                oilmator3 = 3.0f;
-                oilUInum3 = 3;
+                if (cooltime >= 5.0f)
+                {
+
+                    Supply.SupplyFlag = false;
+                    SupplyObject.SetActive(true);
+                    Use = true;
+                    cooltime = 0.0f;
+                    oilmator3 = 3.0f;
+                    oilUInum3 = 3;
+                }
             }
         }
 

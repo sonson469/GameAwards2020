@@ -64,14 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\EasyGrassSubstance\Example Scene\ObjectRotation.cs" />
-    <Compile Include="Assets\Forever_MoveCos.cs" />
     <Compile Include="Assets\MoveField.cs" />
-    <Compile Include="Assets\OilScript.cs" />
     <Compile Include="Assets\PlayerSlope.cs" />
     <Compile Include="Assets\PolygonPi\FenceLayout\FenceLayout.cs" />
-    <Compile Include="Assets\UITime.cs" />
     <Compile Include="Assets\script\Action_Object.cs" />
     <Compile Include="Assets\script\Box.cs" />
+    <Compile Include="Assets\script\BoxIn1.cs" />
     <Compile Include="Assets\script\Boxice.cs" />
     <Compile Include="Assets\script\Boxoil.cs" />
     <Compile Include="Assets\script\BreakWallSwitch.cs" />
@@ -79,12 +77,15 @@
     <Compile Include="Assets\script\ChangeCamera.cs" />
     <Compile Include="Assets\script\Enemy.cs" />
     <Compile Include="Assets\script\FireOff.cs" />
+    <Compile Include="Assets\script\Forever_MoveCos.cs" />
     <Compile Include="Assets\script\GoTitle.cs" />
     <Compile Include="Assets\script\GrassClear.cs" />
     <Compile Include="Assets\script\GrassFire.cs" />
     <Compile Include="Assets\script\MainCamera.cs" />
     <Compile Include="Assets\script\MoveCamera.cs" />
     <Compile Include="Assets\script\OilGauge.cs" />
+    <Compile Include="Assets\script\OilScript.cs" />
+    <Compile Include="Assets\script\OilSupply.cs" />
     <Compile Include="Assets\script\OnKeyPress_MoveRotateGravity.cs" />
     <Compile Include="Assets\script\Oncollision_Objects.cs" />
     <Compile Include="Assets\script\Player_Contloller.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Assets\script\Tongue1.cs" />
     <Compile Include="Assets\script\UI.cs" />
     <Compile Include="Assets\script\UIChase.cs" />
+    <Compile Include="Assets\script\UITime.cs" />
     <Compile Include="Assets\script\gameover.cs" />
     <Compile Include="Assets\script\haguruma.cs" />
     <Compile Include="Assets\script\oilaction.cs" />
