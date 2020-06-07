@@ -49,6 +49,7 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     //*******************
     public Tongue1 tongue;
     public new MoveCamera camera;
+    public PauseMenu pause;
 
     //********************
     // オブジェクト取得
@@ -61,6 +62,11 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     private Rigidbody rbody;
     private Vector3 PlayerPos;                                    //プレイヤーのポジション
     Animator animator;
+    public AudioSource audioSource;
+
+    public AudioClip JumpSE1;
+    public AudioClip OilSE1;
+    public AudioClip SupplySE1;
 
     // 初期化----------------------------------------------------------------------------------------------------------------------------
     //*******************************************************
@@ -75,56 +81,65 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
 
         //最初の時点でのプレイヤーのポジションを取得
         PlayerPos = GetComponent<Transform>().position;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     //ずっと行う-------------------------------------------------------------------------------------------------------------------------
     void Update()
     {
-        //**********
-        // 移動
-        //**********
-        if (stop == false)     //舌出してないとき
+
+        if (pause.PauseFlag == false)
         {
-            var cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
-            direction = cameraForward * Input.GetAxis("Vertical") * speed + Camera.main.transform.right * Input.GetAxis("Horizontal") * speed;
 
-            //vz = Input.GetAxisRaw("Vertical") * speed;
-            // vx = Input.GetAxisRaw("Horizontal") * speed;
+            //**********
+            // 移動
+            //**********
+            if (stop == false)     //舌出してないとき
+            {
+                var cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
+                direction = cameraForward * Input.GetAxis("Vertical") * speed + Camera.main.transform.right * Input.GetAxis("Horizontal") * speed;
 
-            //プレイヤーのRigidbodyに対してInputにspeedを掛けた値で更新し移動
-            //rbody.velocity = new Vector3(vx, 0, vz);
-           
+                //vz = Input.GetAxisRaw("Vertical") * speed;
+                // vx = Input.GetAxisRaw("Horizontal") * speed;
 
-        }
-        if (Input.GetButtonDown("Tongue"))
-        {
-            animator.SetBool("TongueStart", true);
-            stop = true;
-            animator.SetBool("TongueStart", false);
-            animator.SetBool("TongueOpen", true);
-            Invoke("tongueset", 0.4f);
-        }
+                //プレイヤーのRigidbodyに対してInputにspeedを掛けた値で更新し移動
+                //rbody.velocity = new Vector3(vx, 0, vz);
 
 
-        //************
-        // ジャンプ
-        //************
-        // もし、スペースキーが押されたとき、足が何かに触れていたら
-        if (Input.GetButton("Jump") && groundFlag)
-		{
-			if (pushFlag == false) // 押しっぱなしでなければ
-			{
-                groundFlag = false;
-				pushFlag = true; // 押した状態に
-				jumpFlag = true; // ジャンプの準備
-                animator.SetBool("Walk", false);
-                //jumpAnimation = true;
-                animator.SetBool("Jump", true);
             }
-		} else
-		{
-			pushFlag = false; 	// 押した状態解除
-		}
+            if (Input.GetButtonDown("Tongue"))
+            {
+                animator.SetBool("TongueStart", true);
+                stop = true;
+                animator.SetBool("TongueStart", false);
+                animator.SetBool("TongueOpen", true);
+                Invoke("tongueset", 0.4f);
+            }
+
+
+            //************
+            // ジャンプ
+            //************
+            // もし、スペースキーが押されたとき、足が何かに触れていたら
+            if (Input.GetButtonDown("Jump") && groundFlag)
+            {
+                if (pushFlag == false) // 押しっぱなしでなければ
+                {
+                    groundFlag = false;
+                    pushFlag = true; // 押した状態に
+                    jumpFlag = true; // ジャンプの準備
+                    audioSource.PlayOneShot(JumpSE1);
+                    animator.SetBool("Walk", false);
+                    //jumpAnimation = true;
+                    animator.SetBool("Jump", true);
+                }
+            }
+            else
+            {
+                pushFlag = false;   // 押した状態解除
+            }
+        }
 
     }
 

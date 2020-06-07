@@ -7,11 +7,16 @@ public class OilSupply : MonoBehaviour
     public string Tongue;
     private bool TongueFlag = false;
     public bool SupplyFlag = false;
+    static public int SupplyNum;
+    static public int SupplyNumScore;
+
+    public OnKeyPress_MoveRotateGravity PlayerScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        SupplyNum = 0;
+        SupplyNumScore = 0;
     }
 
     // Update is called once per frame
@@ -22,6 +27,14 @@ public class OilSupply : MonoBehaviour
             TongueFlag = false;
             this.gameObject.SetActive(false);
             SupplyFlag = true;
+            SupplyNum++;
+            PlayerScript.audioSource.PlayOneShot(PlayerScript.SupplySE1);
+        }
+
+        SupplyNumScore = (SupplyNum - 1) * 10;
+        if (SupplyNumScore < 0)
+        {
+            SupplyNumScore *= 0;
         }
     }
 
@@ -32,5 +45,14 @@ public class OilSupply : MonoBehaviour
             TongueFlag = true;
 
         }
+    }
+
+    public static int GetSupplyScore()
+    {
+        return SupplyNum;
+    }
+    public static int GetSupplyScore2()
+    {
+        return SupplyNumScore;
     }
 }
