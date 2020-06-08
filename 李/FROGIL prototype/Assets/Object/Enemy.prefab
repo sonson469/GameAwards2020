@@ -611,7 +611,6 @@ GameObject:
   - component: {fileID: 5616114448776805154}
   - component: {fileID: 4041872777107523466}
   - component: {fileID: 4959094453307067814}
-  - component: {fileID: 8021777806202840641}
   - component: {fileID: 586357372090762035}
   - component: {fileID: 5897675818717856251}
   m_Layer: 0
@@ -664,21 +663,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e744f73d56989604e8edc3e5e5b55c9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tagname: action
-  DefTag: {fileID: 3270005143666600089}
-  OilTag: {fileID: 4373112207862955315}
---- !u!114 &8021777806202840641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5897675818717856250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfd41e85ac6035047a2620876765c1d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tagname: Player

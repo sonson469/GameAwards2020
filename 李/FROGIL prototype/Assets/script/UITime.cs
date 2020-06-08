@@ -8,6 +8,7 @@ public class UITime : MonoBehaviour
 
     [SerializeField]
     public static float seconds;
+    public static float timescore;
     //　前のUpdateの時の秒数
     private float oldSeconds;
     //コンポーネント用
@@ -32,10 +33,20 @@ public class UITime : MonoBehaviour
             timerText.text =((int)seconds).ToString("000");
         }
         oldSeconds = seconds;
+
+        timescore = seconds - 60.0f;
+        if(timescore < 0)
+        {
+            timescore *= 0;
+        }
     }
 
     public static float GetTimeScore()
     {
         return seconds;
+    }
+    public static float GetTimeScore2()
+    {
+        return timescore;
     }
 }

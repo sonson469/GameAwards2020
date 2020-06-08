@@ -9,35 +9,37 @@ public class Enemy : MonoBehaviour
 {
     public string tagname;
 
-    //通常状態
-    public GameObject DefTag;
-    //油状態
-    public GameObject OilTag;
+    static public int EnemyBump;
+    static public int EnemyBumpScore;
 
     // Start is called before the first frame update
     void Start()
     {
+        EnemyBump = 0;
+        EnemyBumpScore = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        EnemyBumpScore = EnemyBump * 30;
     }
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collider.gameObject.tag == tagname)
+        if (collision.gameObject.tag == tagname)
         {
-            OilTag.SetActive(true);
-            DefTag.SetActive(false);
-            Invoke("Release", 8.0f);
+            EnemyBump++;
         }
     }
 
-    void Release()
+    public static int GetEnemyScore()
     {
-        OilTag.SetActive(false);
-        DefTag.SetActive(true);
+        return EnemyBump;
     }
+    public static int GetEnemyScore2()
+    {
+        return EnemyBumpScore;
+    }
+
 }

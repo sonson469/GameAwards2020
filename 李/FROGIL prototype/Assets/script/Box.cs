@@ -26,12 +26,16 @@ public class Box : MonoBehaviour
     // フラグ
     //***********
     public bool oilflag = false;          //油がかかった
-    
+    public bool interlock = false;         //連動状態
+
 
     //********************
     // コンポーネント用
     //********************
     public Rigidbody rbody;
+
+    //パラメーターのイメージ
+    public Image targetimage;
 
     //*******************
     // その他変数
@@ -44,6 +48,7 @@ public class Box : MonoBehaviour
     {
         
         rbody = this.GetComponent<Rigidbody>();
+        targetimage = this.showobject.GetComponent<Image>();
 
         //showobject = GameObject.Find("ObjectOil_10");
 
@@ -74,10 +79,10 @@ public class Box : MonoBehaviour
             showObject2.SetActive(true);
 
 
-            this.showobject.GetComponent<Image>().fillAmount -= 0.1f * Time.deltaTime;
+            targetimage.fillAmount -= 0.1f * Time.deltaTime;
         
         }
-        if(this.showobject.GetComponent<Image>().fillAmount <= 0)
+        if(targetimage.fillAmount <= 0)
         {
 
             oilflag = false;
@@ -85,6 +90,7 @@ public class Box : MonoBehaviour
 
         if(oilflag == false)
         {
+            interlock = false;
 
             rbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
             AburaTag.SetActive(false);
@@ -94,7 +100,7 @@ public class Box : MonoBehaviour
             showObject2.SetActive(false);
 
           
-            this.showobject.GetComponent<Image>().fillAmount = 1.0f;
+            targetimage.fillAmount = 1.0f;
         }
         
     }
@@ -106,8 +112,10 @@ public class Box : MonoBehaviour
     {
         if (collider.gameObject.tag == OilTag)
         {
-
-            oilflag = true;
+            if (oilflag == false)
+            {
+                oilflag = true;
+            }
           
         }
     }
