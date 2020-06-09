@@ -6,6 +6,7 @@ public class StageSound : MonoBehaviour
 {
 
     public AudioSource audioSource;
+    //public AudioClip
 
     // Start is called before the first frame update
     void Start()

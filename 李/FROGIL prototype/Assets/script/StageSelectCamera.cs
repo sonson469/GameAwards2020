@@ -14,7 +14,6 @@ public class StageSelectCamera : MonoBehaviour
     public float Speed;
     private bool Right;
     private bool Left;
-    private bool Push;
     public int num;
     private float Posx;
 
@@ -27,7 +26,6 @@ public class StageSelectCamera : MonoBehaviour
     void Start()
     {
         num = 1;
-        Push = false;
         Right = false;
         Left = false;
         Speed = 40.0f;

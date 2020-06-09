@@ -18,6 +18,7 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     public bool stop = false;             //プレイヤー停止
     //float angle = 0;
     Vector3 direction;
+    public Vector3 diff;
 
     //舌ON
     public bool tongueflagMae;
@@ -29,7 +30,7 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     //****************
     public float jumppower = 6;           // ジャンプ力：Inspectorで指定
 	bool pushFlag = false;                // スペースキーを押しっぱなしかどうか
-	bool jumpFlag = false;                // ジャンプ状態かどうか
+	public bool jumpFlag = false;                // ジャンプ状態かどうか
     public bool groundFlag = true;              // 足が何かに触れているかどうか
     //bool jumpAnimation = false;
 
@@ -59,7 +60,7 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     //********************
     // コンポーネント用
     //********************
-    private Rigidbody rbody;
+    public Rigidbody rbody;
     private Vector3 PlayerPos;                                    //プレイヤーのポジション
     Animator animator;
     public AudioSource audioSource;
@@ -67,6 +68,7 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     public AudioClip JumpSE1;
     public AudioClip OilSE1;
     public AudioClip SupplySE1;
+    public AudioClip TongueSE;
 
     // 初期化----------------------------------------------------------------------------------------------------------------------------
     //*******************************************************
@@ -110,6 +112,7 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
             }
             if (Input.GetButtonDown("Tongue"))
             {
+                audioSource.PlayOneShot(TongueSE);
                 animator.SetBool("TongueStart", true);
                 stop = true;
                 animator.SetBool("TongueStart", false);
@@ -171,7 +174,7 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
             rbody.velocity = new Vector3(direction.x, 0, direction.z);
             //rbody.AddForce(direction.x, 0, direction.z, ForceMode.Impulse);
             //プレイヤーがどの方向に進んでいるかわかるようにする
-            Vector3 diff = rbody.velocity - PlayerPos;
+            diff = rbody.velocity - PlayerPos;
 
             if (diff.magnitude > 0.01f) //0のときは変わらないようにする
             {
@@ -190,10 +193,10 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
         //************
         if (jumpFlag)      // もし,ジャンプするときならジャンプする
          {
-            jumpFlag = false;
             animator.SetBool("Jump", false);
             rbody.AddForce(new Vector3(0, jumppower, 0), ForceMode.Impulse);
-         }
+            jumpFlag = false;
+        }
         if (groundFlag)  //地面についたらジャンプしてない
         {
             jumpFlag = false;

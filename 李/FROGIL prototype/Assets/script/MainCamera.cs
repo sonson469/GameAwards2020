@@ -15,12 +15,30 @@ public class MainCamera : MonoBehaviour
     public float UDspeed = 10.0f;  //上下移動速度
     public float MAspeed = 10.0f;
 
-    public GameObject center;  //視点
+    public float MoveZpos = 10.0f;  //視点切り替えの移動距離
+
+    public float MoveCameraSpeed = 3.0f; //プレイヤーに追従するときの速度
+    
+    public bool FieldFlag;
+    public bool PlayerFlag;
+    private bool PushFlag = false;
+
+    public float distance;
+    public float distancefield;
+
+    public GameObject centerfield;  //視点
+    public GameObject centerplayer;
 
     private Vector3 pos;
 
+    public OnKeyPress_MoveRotateGravity PlayerScript;
+    private Rigidbody rbody;
+
     //カメラ座標取得
     private Vector3 CameraPos;
+
+    Vector3 movepos;
+    Vector3 moveposfield;
 
     // Start is called before the first frame update
     void Start()
@@ -32,82 +50,126 @@ public class MainCamera : MonoBehaviour
         this.gameObject.transform.position = new Vector3(pos.x, pos.y, pos.z);
         this.gameObject.transform.LookAt(center.transform);*/
 
-        Vector3 axis = transform.TransformDirection(Vector3.down);
+        /*Vector3 axis = transform.TransformDirection(Vector3.down);
         transform.RotateAround(center.transform.position, axis, speed * Time.deltaTime);
-        this.gameObject.transform.LookAt(center.transform);
+        this.gameObject.transform.LookAt(center.transform);*/
+        
+        FieldFlag = true;
+        PlayerFlag = false;
+
+        CameraPos = transform.position;
+
+        rbody = this.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector3 position = transform.position;
-        Vector3 centerpos = center.transform.position;
+        Vector3 centerfieldpos = centerfield.transform.position;
+        Vector3 centerplayerpos = centerplayer.transform.position;
 
-        //*************
-        // 回転処理
-        //*************
-
-        // 左右回転
-        /*Vector3 axis = transform.TransformDirection(Vector3.left)* Input.GetAxisRaw("Vertical2");
-        axis = transform.TransformDirection(Vector3.right) * Input.GetAxisRaw("Vertical2");
-        transform.RotateAround(center.transform.position, axis, speed * Time.deltaTime);
-        this.gameObject.transform.LookAt(center.transform);*/
-
-        // 上下回転
-        Vector3 axis = transform.TransformDirection(Vector3.up) * -Input.GetAxisRaw("Horizontal2");
-        axis = transform.TransformDirection(Vector3.down) * -Input.GetAxisRaw("Horizontal2");
-        transform.RotateAround(center.transform.position, axis, speed * Time.deltaTime);
-        this.gameObject.transform.LookAt(center.transform);
-
-        //*************
-        // 移動処理
-        //*************
-        //if (Input.GetButton("CameraChange"))
-        //{
-
-        if(Input.GetAxisRaw("Vertical2") > 0.1)
+        if (Input.GetButtonDown("CameraChange") && FieldFlag && !PushFlag)
         {
-            Vector3 move = new Vector3(0, UDspeed, 0);
-            move = this.transform.rotation * move;  // これでこのオブジェクトから見たX,Y,Zにできるよ(たぶん)
+            PushFlag = true;
+            FieldFlag = false;
+            this.gameObject.transform.LookAt(centerplayer.transform);
 
-            position += move * Time.deltaTime;
-            transform.position = position;                                      // カメラの座標を変える
-            centerpos += move * Time.deltaTime;
-            center.transform.position = centerpos;
-            this.gameObject.transform.LookAt(center.transform);                 //視点を見る
+            movepos = centerplayer.transform.position - transform.position;
+            transform.position += transform.forward * (movepos.magnitude - distance);
+           //transform.position += transform.forward * MoveZpos;
+            PlayerFlag = true;
         }
-        if (Input.GetAxisRaw("Vertical2") < -0.1)
+        if (Input.GetButtonDown("CameraChange") && PlayerFlag && !PushFlag)
         {
-            Vector3 move = new Vector3(0, UDspeed, 0);
-            move = this.transform.rotation * move;  // これでこのオブジェクトから見たX,Y,Zにできるよ(たぶん)
-
-            position += -move * Time.deltaTime;
-            transform.position = position;                                      // カメラの座標を変える
-            centerpos += -move * Time.deltaTime;
-            center.transform.position = centerpos;
-            this.gameObject.transform.LookAt(center.transform);                 //視点を見る
+            PushFlag = true;
+            PlayerFlag = false;
+            transform.position = CameraPos;
+            this.gameObject.transform.LookAt(centerfield.transform);
+            /*moveposfield = centerfield.transform.position - transform.position;
+            this.gameObject.transform.LookAt(centerfield.transform);
+            transform.position -= transform.forward * (moveposfield.magnitude - distancefield);
+            Debug.Log(transform.forward);*/
+            FieldFlag = true;
         }
 
-        // 左右移動
-        /* Vector3 move2 = new Vector3(UDspeed, 0, 0);
-         move2 = this.transform.rotation * move2;
+        //*********************************
+        // ステージ全体のとき
+        //*********************************
 
-         position += move2 * Time.deltaTime * Input.GetAxisRaw("Vertical2");
-         transform.position = position;
-         centerpos += move2 * Time.deltaTime * Input.GetAxisRaw("Vertical2");
-         center.transform.position = centerpos;
+        if(FieldFlag)
+        {
+            if (PushFlag)
+            {
+                PushFlag = false;
+            }
+            // 左右回転
+            Vector3 axis = transform.TransformDirection(Vector3.up) * -Input.GetAxisRaw("Horizontal2");
+            axis = transform.TransformDirection(Vector3.down) * -Input.GetAxisRaw("Horizontal2");
+            transform.RotateAround(centerfield.transform.position, axis, speed * Time.deltaTime);
+            this.gameObject.transform.LookAt(centerfield.transform);
 
-         this.gameObject.transform.LookAt(center.transform);   */       //上下とほぼ同じ
+            //上下移動
 
-        // }
+            if (Input.GetAxisRaw("Vertical2") > 0.1)
+            {
+                Vector3 move = new Vector3(0, UDspeed, 0);
+                move = this.transform.rotation * move;  // これでこのオブジェクトから見たX,Y,Zにできるよ(たぶん)
 
-        //***************
-        // 前後移動
-        //***************
-        /*Vector3 movepos = new Vector3(0, 0, MAspeed);
-        movepos = this.transform.rotation * movepos;
-        position += movepos * Time.deltaTime * Input.GetAxis("CameraUp");
-        transform.position = position;
-        this.gameObject.transform.LookAt(center.transform);*/
+                position += move * Time.deltaTime;
+                transform.position = position;                                      // カメラの座標を変える
+                centerfieldpos += move * Time.deltaTime;
+                centerfield.transform.position = centerfieldpos;
+                this.gameObject.transform.LookAt(centerfield.transform);                 //視点を見る
+            }
+            if (Input.GetAxisRaw("Vertical2") < -0.1)
+            {
+                Vector3 move = new Vector3(0, UDspeed, 0);
+                move = this.transform.rotation * move;  // これでこのオブジェクトから見たX,Y,Zにできるよ(たぶん)
+
+                position += -move * Time.deltaTime;
+                transform.position = position;                                      // カメラの座標を変える
+                centerfieldpos += -move * Time.deltaTime;
+                centerfield.transform.position = centerfieldpos;
+                this.gameObject.transform.LookAt(centerfield.transform);                 //視点を見る
+            }
+        }
+
+        //*********************
+        // プレイヤー視点
+        //*********************
+        if (PlayerFlag)
+        {
+
+            if (PushFlag)
+            {
+                PushFlag = false;
+            }
+
+            /*if (PlayerScript.rbody.velocity.magnitude > 1.0f)
+            {
+                transform.position += centerplayer.transform.forward * MoveCameraSpeed * Time.deltaTime;
+            }*/
+            if (PlayerScript.rbody.velocity.y < -4.0f)
+            {
+                rbody.velocity = new Vector3(PlayerScript.rbody.velocity.x, 0, PlayerScript.rbody.velocity.z);
+            }
+            if(PlayerScript.rbody.velocity.y > -4.0f)
+            {
+                rbody.velocity = PlayerScript.rbody.velocity;
+            }
+
+            // 左右回転
+            Vector3 axis = transform.TransformDirection(Vector3.up) * -Input.GetAxisRaw("Horizontal2");
+            axis = transform.TransformDirection(Vector3.down) * -Input.GetAxisRaw("Horizontal2");
+            transform.RotateAround(centerplayer.transform.position, axis, speed * Time.deltaTime);
+            this.gameObject.transform.LookAt(centerplayer.transform);
+            // 上下回転
+            axis = transform.TransformDirection(Vector3.left) * -Input.GetAxisRaw("Vertical2");
+            axis = transform.TransformDirection(Vector3.right) * -Input.GetAxisRaw("Vertical2");
+            transform.RotateAround(centerplayer.transform.position, axis, speed * Time.deltaTime);
+            this.gameObject.transform.LookAt(centerplayer.transform);
+        }
+
     }
 }

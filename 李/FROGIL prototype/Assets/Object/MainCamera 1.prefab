@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6983180887505344964}
   - component: {fileID: 6983180887505344965}
   - component: {fileID: 6983180887505345018}
+  - component: {fileID: 6443057299735672669}
   m_Layer: 0
   m_Name: MainCamera 1
   m_TagString: MainCamera
@@ -100,12 +101,26 @@ MonoBehaviour:
   radius: 30
   UDspeed: 10
   MAspeed: 10
-  center: {fileID: 0}
-  PushKeyRight: j
-  PushKeyLeft: l
-  PushKeyUp: i
-  PushKeyDown: k
-  PushKeyPosUp: u
-  PushKeyPosDown: n
-  PushKeyPosMae: o
-  PushKeyPosAto: m
+  MoveZpos: 10
+  MoveCameraSpeed: 3
+  FieldFlag: 0
+  PlayerFlag: 0
+  centerfield: {fileID: 0}
+  centerplayer: {fileID: 0}
+  PlayerScript: {fileID: 0}
+--- !u!54 &6443057299735672669
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6983180887505345019}
+  serializedVersion: 2
+  m_Mass: 5
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
