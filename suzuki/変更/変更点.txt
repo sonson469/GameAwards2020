@@ -1,9 +1,23 @@
-New Stage
+Match関係
+・Script
+Match->Match(Object)
+・Inspector内
+ Match l ->Match1(Image)
+Grass Fire ->Grass
 
-ステージ概要
+Grassfire->Grass
+Match l ->Match1(Image)
+Match Flag チェックボックスチェックなし
 
-マッチを取って草を燃やし、歯車を動かしてゴールへの道を作ってゴール
+マッチを取得したら左下にマッチの絵を表示、草を燃やしたら非表示。
 
+Title関係
+・Script
+Title_Center->Center(Object)
 
-最初に左側のステージへ行き、油でBoxを上手く動かしてマッチを取る。
-その後歯車前の草を燃やし、歯車を動かしてゴール
+Centerにカメラを親子関係にしてCenterを回すことでCenterを中心に回転
+
+・いらない
+Script
+Title_MainCamera
+なくても動くので不要
