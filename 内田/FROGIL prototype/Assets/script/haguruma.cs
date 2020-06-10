@@ -9,15 +9,28 @@ public class haguruma : MonoBehaviour
     // 対象設定
     //***********
     public string OilTag; //油
-    public string Tongue;
+    public string Tongue;  //舌
+    public GameObject MoveField;  //動くやつ
+
+    //*********
+    // 変数
+    //*********
+    //移動方向指定と速度
+    public float speedx = 0f;
+    public float speedy = 0f;
+    public float speedz = 0f;
+    //上限
+    public float Plus;
+    public float Minus;
 
     //***********
     // フラグ
     //***********
-
     public bool oilflag = false;          //油がかかったか
     public bool gearflag = false;         //回転
-    public Vector3 stageuppos;              //ステージアップの座標を入れる場所
+    public bool tongueflag = false;       //舌
+    public bool plusflag = false;        //プラスの上限にいるか
+    public bool minusflag = false;       //マイナスの上限にいるか
 
     //********************
     // コンポーネント用
@@ -28,51 +41,100 @@ public class haguruma : MonoBehaviour
     void Start()
     {
         rbody = this.GetComponent<Rigidbody>();
-        //stageuppos = GameObject.Find("stageup").transform.position;//上下するやつにstageuoの座標を入れる
     }
 
     // Update is called once per frame
     void Update()
     {
         //transform習得
-        Transform myTransform = this.transform;
+        //Transform myTransform = this.transform;
+        if (oilflag && tongueflag)
+        {
+            gearflag = true;
+        }
+        if (gearflag)
+        {
+            if (plusflag)
+            {
+                transform.Rotate(new Vector3(0, 90, 0) * Time.deltaTime);//毎秒90度回転する
+                MoveField.transform.Translate(speedx * Time.deltaTime, speedy * Time.deltaTime, speedz * Time.deltaTime);
+            }
+            if (minusflag)
+            {
+                transform.Rotate(new Vector3(0, -90, 0) * Time.deltaTime);//毎秒90度回転する
+                MoveField.transform.Translate(-speedx * Time.deltaTime, -speedy * Time.deltaTime, -speedz * Time.deltaTime);
+            }
+        }
+
+        if (speedy > 0)
+        {
+            if (plusflag && MoveField.transform.position.y > Plus)
+            {
+                plusflag = false;
+                gearflag = false;
+                tongueflag = false;
+                minusflag = true;
+            }
+            if (minusflag && MoveField.transform.position.y < Minus)
+            {
+                minusflag = false;
+                gearflag = false;
+                tongueflag = false;
+                plusflag = true;
+            }
+        }
+        if (speedx > 0)
+        {
+            if (plusflag && MoveField.transform.position.x > Plus)
+            {
+                plusflag = false;
+                gearflag = false;
+                tongueflag = false;
+                minusflag = true;
+            }
+            if (minusflag && MoveField.transform.position.x < Minus)
+            {
+                minusflag = false;
+                gearflag = false;
+                tongueflag = false;
+                plusflag = true;
+            }
+        }
+        if (speedz > 0)
+        {
+            if (plusflag && MoveField.transform.position.z > Plus)
+            {
+                plusflag = false;
+                gearflag = false;
+                tongueflag = false;
+                minusflag = true;
+            }
+            if (minusflag && MoveField.transform.position.z < Minus)
+            {
+                minusflag = false;
+                gearflag = false;
+                tongueflag = false;
+                plusflag = true;
+            }
+        }
+
     }
 
     //**********************
-    // 油と重なったら
+    // 重なったら
     //**********************
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == OilTag)//油と重なったら
         {
-
-            gearflag = true;
-            rbody.constraints = RigidbodyConstraints.None;
-            rbody.constraints = RigidbodyConstraints.FreezePosition;
-
-
-            if (gearflag == true && collider.gameObject.tag == Tongue)//trueかつ舌と当たったら
+            oilflag = true;
+        }
+        if (collider.gameObject.tag == Tongue)//舌と重なったら
+        {
+            if (oilflag) //油がONの時だけ
             {
-                transform.Rotate(new Vector3(0, 90, 0) * Time.deltaTime);//毎秒90度回転する
-                rbody.constraints = RigidbodyConstraints.None;
-                Invoke("stageup", 4);
+                tongueflag = true;
             }
         }
     }
-
-    void stageup()
-    {
-        gearflag = false;
-        //Vector3 newpos= GameObject.Find("stageup").transform.position;//newposにstageuoの座標を入れる
-        //GameObject.Find("stageup").transform.position += Vector3 newpos(0f, 2.0f * Time.deltaTime, 0f);//毎秒Y軸に2増加
-        stageuppos = new Vector3 (stageuppos.x, stageuppos.y +Mathf.PingPong(Time.time,2.0f),stageuppos.z);
-        //Invoke("up", 2);
-    }
-    /*
-    void up()
-    {
-
-        rbody.constraints = RigidbodyConstraints.FreezeAll;
-    }
-    */
 }

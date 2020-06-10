@@ -10,15 +10,18 @@ EditorBuildSettings:
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
     path: 
-    guid: b6c7993afaf732e4fbbd546783d89ee7
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Title.unity
     guid: 36e921de9d658ee4e8395dda9cba5462
   - enabled: 1
+    path: Assets/Scenes/StageSelect.unity
+    guid: 8ff82a0a6d5fcd24b8c1ff763446d3cb
+  - enabled: 0
     path: Assets/Scenes/proto project.unity
     guid: 43e1bdcdf7a4d7149b13f92c2cbbe2fe
   - enabled: 1
-    path: Assets/Scenes/Clear.unity
+    path: Assets/Scenes/Result.unity
     guid: 7f4fab0010efb054abd6c999ba252324
   - enabled: 1
     path: Assets/Scenes/Gameover.unity
@@ -27,6 +30,24 @@ EditorBuildSettings:
     path: Assets/Scenes/Stage.unity
     guid: 33748f871bfa02b40b8db1e44e8e71bf
   - enabled: 1
-    path: Assets/Scenes/Stage3.unity
+    path: Assets/Scenes/Game/Stage3.unity
     guid: 2c072580bd7d7e847ac565fa9ebe2b0d
+  - enabled: 1
+    path: Assets/Scenes/Game/Stage1.unity
+    guid: 7588bfa7cac0c854786760214a2866e7
+  - enabled: 1
+    path: Assets/Scenes/Game/Stage2.unity
+    guid: 985ed552f0c460341acd2497a8d3e2ed
+  - enabled: 1
+    path: Assets/Scenes/Game/Stage4.unity
+    guid: c4ffe35f6f4189a4e9940039ca7a52bd
+  - enabled: 1
+    path: Assets/Scenes/Game/Stage5.unity
+    guid: 9938c7b8a5df5864585566b35fbc594e
+  - enabled: 1
+    path: Assets/Scenes/Game/Stage6.unity
+    guid: 5940f79358e472f459f97f952308f76b
+  - enabled: 1
+    path: Assets/Scenes/Game/Stage7.unity
+    guid: f18b12e5e7393e14484ffceb33f88c4a
   m_configObjects: {}

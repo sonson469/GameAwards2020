@@ -55,10 +55,19 @@ public class Boxice : MonoBehaviour
     {
         if (oilflag == true)
         {
+            rbody.constraints = RigidbodyConstraints.None;
+            rbody.constraints = RigidbodyConstraints.FreezeRotation;
+            showobject.SetActive(true);
+            showObject2.SetActive(true);
             this.showobject.GetComponent<Image>().fillAmount -= 0.2f * Time.deltaTime;
         }
-        if (oilflag == false)
+        if(this.showobject.GetComponent<Image>().fillAmount <= 0)
         {
+            oilflag = false;
+        }
+            if (oilflag == false)
+        {
+            rbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
             showobject.SetActive(false);
             showObject2.SetActive(false);
             this.showobject.GetComponent<Image>().fillAmount = 1.0f;
@@ -72,23 +81,7 @@ public class Boxice : MonoBehaviour
     {
         if (collider.gameObject.tag == OilTag)
         {
-            if (oilflag == false)
-            {
-                rbody.constraints = RigidbodyConstraints.None;
-                rbody.constraints = RigidbodyConstraints.FreezeRotation;
-                oilflag = true;
-                Invoke("oiloff", oillimit);
-            }
-
-            showobject.SetActive(true);
-            showObject2.SetActive(true);
-            Invoke("Update", 5);
+           oilflag = true;
         }
-    }
-
-    void oiloff()
-    {
-        oilflag = false;
-        rbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
     }
 }

@@ -14,7 +14,7 @@ public class SwitchScript : MonoBehaviour
 
     public rbodyScript targetrbody;
 
-    public int num;       //1 生成 2 消す 3 落とす
+    public int num;       //1 生成 2 消す 3 落とす 4 押してる間消える
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +58,27 @@ public class SwitchScript : MonoBehaviour
 
                 targetrbody.rbody.constraints = RigidbodyConstraints.None;
                 targetrbody.rbody.constraints = RigidbodyConstraints.FreezeRotation;
+
+            }
+        }
+        if (num == 4)    //消す
+        {
+            if (collider.gameObject.tag == PushTag)
+            {
+
+                Target.SetActive(false);
+
+            }
+        }
+    }
+    void OnCollisionExit(Collision other)
+    {
+        if (num == 4)    //生成
+        {
+            if (other.gameObject.tag == PushTag)
+            {
+
+                Target.SetActive(true);
 
             }
         }

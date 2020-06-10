@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7838858094700592476}
   m_Layer: 0
   m_Name: bridgh_
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,5 +91,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0062640975, y: 0.01999748, z: 0.020000003}
-  m_Center: {x: -0.003132029, y: -0.0000012653245, z: -0.000000003092329}
+  m_Size: {x: 0.011853946, y: 0.01999748, z: 0.020000003}
+  m_Center: {x: -0.00015428368, y: -0.0000012653245, z: -0.000000003092329}
