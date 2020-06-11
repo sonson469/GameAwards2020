@@ -14,6 +14,10 @@ public class TitleScript : MonoBehaviour
     public GameObject Button1;
     public GameObject Button2;
 
+    public GameObject Fadein;
+    float alfa;
+
+
     private Button PressA;
     private Button StageSelect;
     private Button How;
@@ -27,6 +31,7 @@ public class TitleScript : MonoBehaviour
         Time.timeScale = 1f;
 
         StartButton.SetActive(false);
+        Fadein.SetActive(false);
 
         audioSource.Play();
 
@@ -52,10 +57,21 @@ public class TitleScript : MonoBehaviour
     }
     public void GoStageSelect()
     {
-        SceneManager.LoadScene("StageSelect");
+        //+Time.deltaTime
+        Fadein.SetActive(true);
+
+        Invoke("Load", 1.0f);
+        
+        
     }
     public void HowPlay()
     {
 
     }
+
+    public void Load()
+    {
+        SceneManager.LoadScene("StageSelect");
+    }
+
 }

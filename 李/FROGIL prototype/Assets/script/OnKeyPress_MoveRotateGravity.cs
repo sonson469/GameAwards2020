@@ -108,6 +108,27 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
                 //プレイヤーのRigidbodyに対してInputにspeedを掛けた値で更新し移動
                 //rbody.velocity = new Vector3(vx, 0, vz);
 
+                //************
+                // ジャンプ
+                //************
+                // もし、スペースキーが押されたとき、足が何かに触れていたら
+                if (Input.GetButtonDown("Jump") && groundFlag)
+                {
+                    if (pushFlag == false) // 押しっぱなしでなければ
+                    {
+                        groundFlag = false;
+                        pushFlag = true; // 押した状態に
+                        jumpFlag = true; // ジャンプの準備
+                        audioSource.PlayOneShot(JumpSE1);
+                        animator.SetBool("Walk", false);
+                        //jumpAnimation = true;
+                        animator.SetBool("Jump", true);
+                    }
+                }
+                else
+                {
+                    pushFlag = false;   // 押した状態解除
+                }
 
             }
             if (Input.GetButtonDown("Tongue"))
@@ -121,27 +142,7 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
             }
 
 
-            //************
-            // ジャンプ
-            //************
-            // もし、スペースキーが押されたとき、足が何かに触れていたら
-            if (Input.GetButtonDown("Jump") && groundFlag)
-            {
-                if (pushFlag == false) // 押しっぱなしでなければ
-                {
-                    groundFlag = false;
-                    pushFlag = true; // 押した状態に
-                    jumpFlag = true; // ジャンプの準備
-                    audioSource.PlayOneShot(JumpSE1);
-                    animator.SetBool("Walk", false);
-                    //jumpAnimation = true;
-                    animator.SetBool("Jump", true);
-                }
-            }
-            else
-            {
-                pushFlag = false;   // 押した状態解除
-            }
+            
         }
 
     }

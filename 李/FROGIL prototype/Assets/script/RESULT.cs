@@ -18,6 +18,8 @@ public class RESULT : MonoBehaviour
     public GameObject EnemyText;
     public GameObject EnemyScore;
 
+    public GameObject ScoreText;
+
     //************
     // ボタン
     //************
@@ -45,6 +47,8 @@ public class RESULT : MonoBehaviour
     int enemytext;
     int enemyscore;
 
+    int score;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +59,7 @@ public class RESULT : MonoBehaviour
         supplyscore = OilSupply.GetSupplyScore2();
         enemytext = Enemy.GetEnemyScore();
         enemyscore = Enemy.GetEnemyScore2();
+        score = ScoreScript.GetScore();
 
         Next = NextButton.GetComponent<Button>();
         Select = SelectButton.GetComponent<Button>();
@@ -73,6 +78,7 @@ public class RESULT : MonoBehaviour
         SupplyScore.GetComponent<Text>().text =(supplyscore).ToString("-000");
         EnemyText.GetComponent<Text>().text = ":  " + (enemytext).ToString("000");
         EnemyScore.GetComponent<Text>().text = (enemyscore).ToString("-000");
+        ScoreText.GetComponent<Text>().text = "スコア  :  " + (score).ToString("0000");
 
     }
 

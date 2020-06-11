@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2625833802651314700}
   - component: {fileID: 4991970073755537485}
   - component: {fileID: 7137778437663975852}
+  - component: {fileID: 3106678075931929693}
+  - component: {fileID: 1613158441933196358}
   m_Layer: 0
   m_Name: GameDirector
   m_TagString: Untagged
@@ -59,5 +61,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d42a280b9c628554c9c6c120a54543e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pause: {fileID: 0}
+  Button1: {fileID: 0}
+  Button2: {fileID: 0}
+  Button3: {fileID: 0}
+  PauseFlag: 0
+--- !u!114 &3106678075931929693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992119574169436971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e285baadc0f31449e0474c8601aa42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClearScript: {fileID: 0}
+--- !u!114 &1613158441933196358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992119574169436971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a105d911e91b284c8a21db2bf007b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

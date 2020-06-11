@@ -57,7 +57,7 @@ public class SwitchScript : MonoBehaviour
             {
 
                 targetrbody.rbody.constraints = RigidbodyConstraints.None;
-                targetrbody.rbody.constraints = RigidbodyConstraints.FreezeRotation;
+                targetrbody.rbody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
 
             }
         }

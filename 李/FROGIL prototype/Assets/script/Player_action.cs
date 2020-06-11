@@ -26,11 +26,7 @@ public class Player_action : MonoBehaviour
     //油何回使うか
     public int num = 8;
 
-    //補給油
-    public GameObject SupplyObject;
-
     //他スクリプト
-    public OilSupply Supply;
     public PauseMenu pause;
     public OnKeyPress_MoveRotateGravity MyScript;
 
@@ -169,15 +165,12 @@ public class Player_action : MonoBehaviour
 
             if (num == 8)
             {
-                if (Supply.SupplyFlag)
+                if (oilmator < 0)
                 {
-
                     Use = false;
                     cooltime += Time.deltaTime;
                     if (cooltime >= 5.0f)
                     {
-                        Supply.SupplyFlag = false;
-                        SupplyObject.SetActive(true);
                         Use = true;
                         cooltime = 0.0f;
                         oilmator = 8.0f;
@@ -188,14 +181,13 @@ public class Player_action : MonoBehaviour
 
             if (num == 5)
             {
-                if (Supply.SupplyFlag)
+                if (oilmator5 < 0)
                 {
+
                     Use = false;
                     cooltime += Time.deltaTime;
                     if (cooltime >= 5.0f)
                     {
-                        Supply.SupplyFlag = false;
-                        SupplyObject.SetActive(true);
                         Use = true;
                         cooltime = 0.0f;
                         oilmator5 = 5.0f;
@@ -206,17 +198,14 @@ public class Player_action : MonoBehaviour
 
             if (num == 3)
             {
-                if (Supply.SupplyFlag)
+                if (oilmator3 < 0)
                 {
-
                     Use = false;
                     cooltime += Time.deltaTime;
 
                     if (cooltime >= 5.0f)
                     {
 
-                        Supply.SupplyFlag = false;
-                        SupplyObject.SetActive(true);
                         Use = true;
                         cooltime = 0.0f;
                         oilmator3 = 3.0f;

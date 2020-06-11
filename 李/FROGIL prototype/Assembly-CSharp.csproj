@@ -56,6 +56,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\PolygonPi\FenceLayout\FenceLayout.cs" />
+     <Compile Include="Assets\StageStart.cs" />
+     <Compile Include="Assets\TitleFrog.cs" />
      <Compile Include="Assets\script\Action_Object.cs" />
      <Compile Include="Assets\script\Box.cs" />
      <Compile Include="Assets\script\BoxIn1.cs" />
@@ -65,12 +67,15 @@
      <Compile Include="Assets\script\CameraRot.cs" />
      <Compile Include="Assets\script\ChangeCamera.cs" />
      <Compile Include="Assets\script\Enemy.cs" />
+     <Compile Include="Assets\script\FadeController.cs" />
      <Compile Include="Assets\script\FireOff.cs" />
      <Compile Include="Assets\script\Forever_MoveCos.cs" />
      <Compile Include="Assets\script\GoTitle.cs" />
      <Compile Include="Assets\script\GrassClear.cs" />
      <Compile Include="Assets\script\GrassFire.cs" />
+     <Compile Include="Assets\script\HighScoreScript.cs" />
      <Compile Include="Assets\script\MainCamera.cs" />
+     <Compile Include="Assets\script\MatchScript.cs" />
      <Compile Include="Assets\script\MoveCamera.cs" />
      <Compile Include="Assets\script\OilGauge.cs" />
      <Compile Include="Assets\script\OilScript.cs" />
@@ -81,11 +86,14 @@
      <Compile Include="Assets\script\Player_Contloller.cs" />
      <Compile Include="Assets\script\Player_action.cs" />
      <Compile Include="Assets\script\RESULT.cs" />
+     <Compile Include="Assets\script\ScoreScript.cs" />
      <Compile Include="Assets\script\StageSelectCamera.cs" />
      <Compile Include="Assets\script\StageSound.cs" />
      <Compile Include="Assets\script\SwitchScript.cs" />
      <Compile Include="Assets\script\TPSCamera.cs" />
      <Compile Include="Assets\script\TitleScript.cs" />
+     <Compile Include="Assets\script\Title_Center.cs" />
+     <Compile Include="Assets\script\Title_MainCamera.cs" />
      <Compile Include="Assets\script\Tongue1.cs" />
      <Compile Include="Assets\script\UI.cs" />
      <Compile Include="Assets\script\UIChase.cs" />

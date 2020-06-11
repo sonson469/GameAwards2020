@@ -105,6 +105,8 @@ MonoBehaviour:
   MoveCameraSpeed: 3
   FieldFlag: 0
   PlayerFlag: 0
+  distance: 10
+  distancefield: 0
   centerfield: {fileID: 0}
   centerplayer: {fileID: 0}
   PlayerScript: {fileID: 0}

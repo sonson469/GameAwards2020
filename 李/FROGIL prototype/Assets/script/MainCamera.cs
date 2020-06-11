@@ -18,7 +18,7 @@ public class MainCamera : MonoBehaviour
     public float MoveZpos = 10.0f;  //視点切り替えの移動距離
 
     public float MoveCameraSpeed = 3.0f; //プレイヤーに追従するときの速度
-    
+
     public bool FieldFlag;
     public bool PlayerFlag;
     private bool PushFlag = false;
@@ -40,6 +40,8 @@ public class MainCamera : MonoBehaviour
     Vector3 movepos;
     Vector3 moveposfield;
 
+    float camera_r;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,13 +55,18 @@ public class MainCamera : MonoBehaviour
         /*Vector3 axis = transform.TransformDirection(Vector3.down);
         transform.RotateAround(center.transform.position, axis, speed * Time.deltaTime);
         this.gameObject.transform.LookAt(center.transform);*/
-        
+
         FieldFlag = true;
         PlayerFlag = false;
 
         CameraPos = transform.position;
 
         rbody = this.GetComponent<Rigidbody>();
+
+        // 初期半径を取得
+        Vector3 v = transform.position - centerfield.transform.position;
+        v.y = 0;
+        camera_r = v.magnitude;
     }
 
     // Update is called once per frame
@@ -77,27 +84,37 @@ public class MainCamera : MonoBehaviour
 
             movepos = centerplayer.transform.position - transform.position;
             transform.position += transform.forward * (movepos.magnitude - distance);
-           //transform.position += transform.forward * MoveZpos;
+            //transform.position += transform.forward * MoveZpos;
             PlayerFlag = true;
         }
         if (Input.GetButtonDown("CameraChange") && PlayerFlag && !PushFlag)
         {
             PushFlag = true;
             PlayerFlag = false;
-            transform.position = CameraPos;
-            this.gameObject.transform.LookAt(centerfield.transform);
+            //            transform.position = CameraPos;
+            //            this.gameObject.transform.LookAt(centerfield.transform);
             /*moveposfield = centerfield.transform.position - transform.position;
             this.gameObject.transform.LookAt(centerfield.transform);
             transform.position -= transform.forward * (moveposfield.magnitude - distancefield);
             Debug.Log(transform.forward);*/
             FieldFlag = true;
+
+            Vector3 v = centerfield.transform.position - centerplayer.transform.position;   // カエルからマップ中心へのベクトル
+            v.y = 0;                                                                        // 水平に
+            v.Normalize();                                                                  // 長さを1に
+            v = centerfield.transform.position - v * camera_r;                              // 長さを初期半径に
+            v.y = CameraPos.y;                                                              // y座標を初期値に
+            transform.position = v;                                                         // カメラ位置セット
+            this.gameObject.transform.LookAt(centerfield.transform);                        // 注視点をマップ中心に
+
+            rbody.velocity = Vector3.zero;  // velocityをゼロに
         }
 
         //*********************************
         // ステージ全体のとき
         //*********************************
 
-        if(FieldFlag)
+        if (FieldFlag)
         {
             if (PushFlag)
             {
@@ -154,7 +171,7 @@ public class MainCamera : MonoBehaviour
             {
                 rbody.velocity = new Vector3(PlayerScript.rbody.velocity.x, 0, PlayerScript.rbody.velocity.z);
             }
-            if(PlayerScript.rbody.velocity.y > -4.0f)
+            if (PlayerScript.rbody.velocity.y > -4.0f)
             {
                 rbody.velocity = PlayerScript.rbody.velocity;
             }

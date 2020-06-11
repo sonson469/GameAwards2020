@@ -16,7 +16,6 @@ public class UI : MonoBehaviour
 
     public GameObject Player_action;
     Player_action script;
-    public OilSupply supply;
     public float oil8;
     public float oil5;
     public float oil3;
@@ -52,31 +51,18 @@ public class UI : MonoBehaviour
 
         if (script.num == 8)
         {
-            if (supply.SupplyFlag)
-            {
                 this.oilGauge8.GetComponent<Image>().fillAmount += 0.2f * Time.deltaTime;
-
-            }
         }
 
         if (script.num == 5)
         {
-            if (supply.SupplyFlag)
-            {
-                    this.oilGauge5.GetComponent<Image>().fillAmount += 0.2f * Time.deltaTime;
-
-            }
+                this.oilGauge5.GetComponent<Image>().fillAmount += 0.2f * Time.deltaTime;
         }
 
         if (script.num == 3)
         {
-            if (supply.SupplyFlag)
-            {
-                    this.oilGauge3.GetComponent<Image>().fillAmount += 0.2f * Time.deltaTime;
-                
-            }
+                this.oilGauge3.GetComponent<Image>().fillAmount += 0.2f * Time.deltaTime;
         }
-
 
     }
 
@@ -85,27 +71,15 @@ public class UI : MonoBehaviour
 
         if (script.num == 8)
         {
-            if (oil8 > 0 && supply.SupplyFlag == false)
-            {
                 this.oilGauge8.GetComponent<Image>().fillAmount -= 0.125f;
-
-            }
         }
         if (script.num == 5)
         {
-            if (oil5 > 0 && supply.SupplyFlag == false)
-            {
                 this.oilGauge5.GetComponent<Image>().fillAmount -= 0.2f;
-
-            }
         }
         if (script.num == 3)
         {
-            if (oil3 > 0 && supply.SupplyFlag == false)
-            {
                 this.oilGauge3.GetComponent<Image>().fillAmount -= 1.0f /3.0f;
-
-            }
         }
 
     }
