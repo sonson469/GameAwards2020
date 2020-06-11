@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GrassClear : MonoBehaviour
 {
@@ -9,10 +8,13 @@ public class GrassClear : MonoBehaviour
 
     public bool ClearFlag;
 
+    public GameObject ClearUI;
+
     // Start is called before the first frame update
     void Start()
     {
         ClearFlag = false;
+        ClearUI.SetActive(false);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -29,7 +31,8 @@ public class GrassClear : MonoBehaviour
 
         if (ClearFlag)
         {
-            SceneManager.LoadScene("Result");
+            Time.timeScale = 0f;
+            ClearUI.SetActive(true);
         }
         
     }

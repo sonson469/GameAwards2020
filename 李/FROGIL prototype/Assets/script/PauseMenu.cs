@@ -9,13 +9,8 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject Pause;
 
-    public GameObject Button1;
-    public GameObject Button2;
-    public GameObject Button3;
+    public GrassClear Clear;
 
-    private Button tudukeru;
-    private Button yarinaosu;
-    private Button akirameru;
 
     public bool PauseFlag = false;
 
@@ -23,13 +18,6 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         Pause.SetActive(false);
-
-        tudukeru = Button1.GetComponent<Button>();
-        yarinaosu = Button2.GetComponent<Button>();
-        akirameru = Button3.GetComponent<Button>();
-
-        //最初に選択されてるやつ
-        tudukeru.Select();
 
     }
 
@@ -41,14 +29,12 @@ public class PauseMenu : MonoBehaviour
         {
             Pause.SetActive(!Pause.activeSelf);
         }
-
         if (Pause.activeSelf)
         {
             PauseFlag = true;
             Time.timeScale = 0f;
-     
         }
-        else
+        if(!Pause.activeSelf && !Clear.ClearFlag)
         {
             PauseFlag = false;
             Time.timeScale = 1f;

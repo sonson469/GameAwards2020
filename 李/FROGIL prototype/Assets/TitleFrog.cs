@@ -8,13 +8,12 @@ public class TitleFrog : MonoBehaviour
     public GameObject center;
     public float speed = 3;
     Vector3 oldpos;
-
     private Rigidbody rbody;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rbody = this.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -25,5 +24,6 @@ public class TitleFrog : MonoBehaviour
         Vector3 diff = transform.position - oldpos;
         oldpos = transform.position;
         transform.rotation = Quaternion.LookRotation(diff);
+
     }
 }

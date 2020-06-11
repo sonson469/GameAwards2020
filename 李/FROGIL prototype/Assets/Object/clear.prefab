@@ -76,6 +76,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagname: Player
+  ClearFlag: 0
+  ClearUI: {fileID: 5490956279964628591}
 --- !u!1001 &2943300544701851449
 PrefabInstance:
   m_ObjectHideFlags: 0

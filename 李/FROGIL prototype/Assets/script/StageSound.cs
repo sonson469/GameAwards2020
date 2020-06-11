@@ -5,6 +5,8 @@ using UnityEngine;
 public class StageSound : MonoBehaviour
 {
 
+    public GrassClear Clear;
+
     public AudioSource audioSource;
     //public AudioClip
 
@@ -19,6 +21,9 @@ public class StageSound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Clear.ClearFlag)
+        {
+            audioSource.Stop();
+        }
     }
 }

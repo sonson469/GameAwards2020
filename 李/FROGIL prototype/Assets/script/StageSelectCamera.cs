@@ -62,6 +62,14 @@ public class StageSelectCamera : MonoBehaviour
         {
             TargetL2.SetActive(false);
         }
+        if (num == 10)
+        {
+            TargetR2.SetActive(true);
+        }
+        if (num >= 9)
+        {
+            TargetR2.SetActive(false);
+        }
 
         if (Input.GetButtonDown("Oil"))
         {
@@ -84,6 +92,26 @@ public class StageSelectCamera : MonoBehaviour
             if (num == 5)
             {
                 SceneManager.LoadScene("Stage5");
+            }
+            if (num == 6)
+            {
+                SceneManager.LoadScene("Stage6");
+            }
+            if (num == 7)
+            {
+                SceneManager.LoadScene("Stage7");
+            }
+            if (num == 8)
+            {
+                SceneManager.LoadScene("Stage8");
+            }
+            if (num == 9)
+            {
+                SceneManager.LoadScene("Stage9");
+            }
+            if (num == 10)
+            {
+                SceneManager.LoadScene("Stage10");
             }
         }
 
