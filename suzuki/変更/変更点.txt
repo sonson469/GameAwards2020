@@ -1,23 +1,18 @@
-Match関係
-・Script
-Match->Match(Object)
-・Inspector内
- Match l ->Match1(Image)
-Grass Fire ->Grass
-
-Grassfire->Grass
-Match l ->Match1(Image)
-Match Flag チェックボックスチェックなし
-
-マッチを取得したら左下にマッチの絵を表示、草を燃やしたら非表示。
-
-Title関係
-・Script
-Title_Center->Center(Object)
-
-Centerにカメラを親子関係にしてCenterを回すことでCenterを中心に回転
-
-・いらない
+Fadein Fade out関係
+・Title Scene
 Script
-Title_MainCamera
-なくても動くので不要
+Fade Controller ->Panel 1(Image)
+Title Script -> Script(Object)
+・使い方
+Fade Contller内InspectorでFade inを使用する時はFade inのフラグをOnにし、Panel 1のα値を２５５にする。
+Fade Outを使用する時はFade OutのフラグをOnにし、Panel 1のα値を0にする。
+
+・使用例
+TitleScene内ではTitle Script内においてStageSelect Sceneに遷移する時にPanel Objectを呼び出し、
+Fade Outその後Invokeで遷移
+
+
+・Stage Select Scene
+
+Prefab化したPanel 1をCanvas内に追加し、上記のやり方でFade inのみ実装
+
