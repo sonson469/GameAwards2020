@@ -1,18 +1,3 @@
-Fadein Fade out関係
-・Title Scene
-Script
-Fade Controller ->Panel 1(Image)
-Title Script -> Script(Object)
-・使い方
-Fade Contller内InspectorでFade inを使用する時はFade inのフラグをOnにし、Panel 1のα値を２５５にする。
-Fade Outを使用する時はFade OutのフラグをOnにし、Panel 1のα値を0にする。
-
-・使用例
-TitleScene内ではTitle Script内においてStageSelect Sceneに遷移する時にPanel Objectを呼び出し、
-Fade Outその後Invokeで遷移
-
-
-・Stage Select Scene
-
-Prefab化したPanel 1をCanvas内に追加し、上記のやり方でFade inのみ実装
-
+Grass Clear -> NextStageButton
+アタッチして、On Clickを画像のようにする。
+添付画像はStage1なので次のStage2に遷移するようにNumを2にする。
