@@ -674,9 +674,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12656dc057a4a246b8a1390e10ef1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedX: 0.25
+  speedX: 1.25
   speedZ: 0
-  GroundTag: Stage
+  GroundTag: Ground
   GroundFlag: 0
   RotFrag: 0
 --- !u!1 &6542205267817819417

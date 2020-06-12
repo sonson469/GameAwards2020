@@ -52,6 +52,7 @@ public class OnKeyPress_MoveRotateGravity : MonoBehaviour
     public new MoveCamera camera;
     public PauseMenu pause;
 
+
     //********************
     // オブジェクト取得
     //********************

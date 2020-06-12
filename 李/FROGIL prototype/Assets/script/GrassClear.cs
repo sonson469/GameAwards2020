@@ -9,12 +9,15 @@ public class GrassClear : MonoBehaviour
     public bool ClearFlag;
 
     public GameObject ClearUI;
+    public GameObject ClearBuck;
+
 
     // Start is called before the first frame update
     void Start()
     {
         ClearFlag = false;
         ClearUI.SetActive(false);
+        ClearBuck.SetActive(false);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -33,6 +36,7 @@ public class GrassClear : MonoBehaviour
         {
             Time.timeScale = 0f;
             ClearUI.SetActive(true);
+            ClearBuck.SetActive(true);
         }
         
     }

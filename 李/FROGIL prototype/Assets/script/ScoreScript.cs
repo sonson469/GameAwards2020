@@ -5,28 +5,27 @@ using UnityEngine;
 public class ScoreScript : MonoBehaviour
 {
     
-    float timescore;
+   /* float timescore;
     int supplyscore;
     int enemyscore;
 
     static public int Score;
     static public int HighScore;
 
-    public GrassClear ClearScript;
+    public GrassClear ClearScript;*/
 
     // Start is called before the first frame update
     void Start()
     {
-        Score = 1000;
+       // Score = 1000;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        timescore = UITime.GetTimeScore2();
+        /*timescore = UITime.GetTimeScore2();
         supplyscore = OilSupply.GetSupplyScore2();
-        enemyscore = Enemy.GetEnemyScore2();
         Score = 1000 - ((int)timescore + supplyscore + enemyscore);
 
         if (ClearScript.ClearFlag)
@@ -35,11 +34,11 @@ public class ScoreScript : MonoBehaviour
             {
                 PlayerPrefs.SetInt("HighScore", Score);
             }
-        }
+        }*/
     }
 
-    public static int GetScore()
+    /*public static int GetScore()
     {
         return Score;
-    }
+    }*/
 }

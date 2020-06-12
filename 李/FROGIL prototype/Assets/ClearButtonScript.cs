@@ -17,10 +17,15 @@ public class ClearButtonScript : MonoBehaviour
     private Button Select;
     private Button Title;
 
-    float realDeltaTime;
-    float lastRealTime;
+    public float realDeltaTime;
+    public float lastRealTime;
+
+    public UITime timerisult;
+    public GameObject TimeText;
 
     float Timer;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +52,8 @@ public class ClearButtonScript : MonoBehaviour
         {
             CreateButton();
         }
+
+        TimeText.GetComponent<Text>().text = "タイム  :  " + ((int)timerisult.seconds).ToString("000");
     }
 
     void CreateButton()
@@ -55,7 +62,7 @@ public class ClearButtonScript : MonoBehaviour
     }
 
     //現実時間基準でデルタ時間を求める.
-    void CalcRealDeltaTime()
+    public void CalcRealDeltaTime()
     {
         if (lastRealTime == 0)
         {
@@ -65,4 +72,14 @@ public class ClearButtonScript : MonoBehaviour
         lastRealTime = Time.realtimeSinceStartup;
     }
 
+    public void GoStageSelect()
+    {
+        SceneManager.LoadScene("StageSelect");
     }
+
+    public void GoTitle()
+    {
+        SceneManager.LoadScene("Title");
+    }
+
+}

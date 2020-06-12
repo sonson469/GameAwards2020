@@ -125,10 +125,15 @@ public class MainCamera : MonoBehaviour
             axis = transform.TransformDirection(Vector3.down) * -Input.GetAxisRaw("Horizontal2");
             transform.RotateAround(centerfield.transform.position, axis, speed * Time.deltaTime);
             this.gameObject.transform.LookAt(centerfield.transform);
+            // 上下回転
+            axis = transform.TransformDirection(Vector3.right) * -Input.GetAxisRaw("Vertical2");
+            axis = transform.TransformDirection(Vector3.left) * -Input.GetAxisRaw("Vertical2");
+            transform.RotateAround(centerfield.transform.position, axis, speed * Time.deltaTime);
+            this.gameObject.transform.LookAt(centerfield.transform);
 
             //上下移動
 
-            if (Input.GetAxisRaw("Vertical2") > 0.1)
+            /*if (Input.GetAxisRaw("Vertical2") > 0.1)
             {
                 Vector3 move = new Vector3(0, UDspeed, 0);
                 move = this.transform.rotation * move;  // これでこのオブジェクトから見たX,Y,Zにできるよ(たぶん)
@@ -149,7 +154,7 @@ public class MainCamera : MonoBehaviour
                 centerfieldpos += -move * Time.deltaTime;
                 centerfield.transform.position = centerfieldpos;
                 this.gameObject.transform.LookAt(centerfield.transform);                 //視点を見る
-            }
+            }*/
         }
 
         //*********************

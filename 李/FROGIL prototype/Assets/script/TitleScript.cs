@@ -28,6 +28,9 @@ public class TitleScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        Cursor.visible = false;
+
         Time.timeScale = 1f;
 
         StartButton.SetActive(false);

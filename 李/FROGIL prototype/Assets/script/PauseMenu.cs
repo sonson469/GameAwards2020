@@ -25,7 +25,7 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetButtonDown("Menu"))
+        if (Input.GetButtonDown("Menu") && !Clear.ClearFlag)
         {
             Pause.SetActive(!Pause.activeSelf);
         }

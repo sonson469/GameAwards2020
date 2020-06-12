@@ -355,7 +355,7 @@ MonoBehaviour:
   JumpSE1: {fileID: 8300000, guid: 37973da0f34fdef43a765ced7ae38a9e, type: 3}
   OilSE1: {fileID: 8300000, guid: a169e5f5f599aac4ca56dbe815bad3fb, type: 3}
   SupplySE1: {fileID: 8300000, guid: 914a03c3ac473ee4788930b5a2d6cfb1, type: 3}
-  TongueSE: {fileID: 8300000, guid: 68e7199dcfde5f9449896ca82cea6855, type: 3}
+  TongueSE: {fileID: 8300000, guid: 876c3a61924efa84c9168f06a88361e4, type: 3}
 --- !u!114 &8272964515679254315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,8 +386,6 @@ MonoBehaviour:
   oilUInum5: 0
   oilUInum3: 0
   num: 5
-  SupplyObject: {fileID: 0}
-  Supply: {fileID: 0}
   pause: {fileID: 0}
   MyScript: {fileID: 8272964515679254312}
 --- !u!82 &6315158755463464728

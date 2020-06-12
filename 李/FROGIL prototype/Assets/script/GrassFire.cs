@@ -12,6 +12,7 @@ public class GrassFire : MonoBehaviour
     public GameObject Fire2;
     public GameObject Fire3;
 
+
     public MatchScript matchscript;
 
     // Start is called before the first frame update
@@ -35,7 +36,7 @@ public class GrassFire : MonoBehaviour
             Fire.SetActive(true);
             Fire2.SetActive(true);
             Fire3.SetActive(true);
-            Destroy(this.gameObject,5);
+            Destroy(this.gameObject,3);
         }
     }
 }

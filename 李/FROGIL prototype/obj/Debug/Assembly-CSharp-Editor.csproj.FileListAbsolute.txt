@@ -880,3 +880,5 @@ C:\Users\sonso\Desktop\5.1FROGIL\FROGIL\FROGIL prototype\obj\Debug\Assembly-CSha
 C:\Users\sonso\Desktop\5.1FROGIL\FROGIL\FROGIL prototype\obj\Debug\Assembly-CSharp-Editor.csproj.CopyComplete
 C:\Users\sonso\Desktop\5.1FROGIL\FROGIL\FROGIL prototype\obj\Debug\Assembly-CSharp-Editor.dll
 C:\Users\sonso\Desktop\5.1FROGIL\FROGIL\FROGIL prototype\obj\Debug\Assembly-CSharp-Editor.pdb
+C:\Users\sonso\Desktop\FROGIL\FROGIL prototype\Temp\bin\Debug\Unity.2D.Sprite.Editor.dll
+C:\Users\sonso\Desktop\FROGIL\FROGIL prototype\Temp\bin\Debug\Unity.2D.Sprite.Editor.pdb
