@@ -69,7 +69,7 @@ public class TitleScript : MonoBehaviour
     }
     public void HowPlay()
     {
-
+        SceneManager.LoadScene("How");
     }
 
     public void Load()

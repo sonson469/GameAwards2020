@@ -62,4 +62,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/How.unity
+    guid: 387a8d523ac36124eaaa496b3f015546
   m_configObjects: {}
