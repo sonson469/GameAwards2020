@@ -48,20 +48,28 @@ public class UI : MonoBehaviour
         //this.time = 0;
         //Time.timeScale = 0;
         //}
-
         if (script.num == 8)
         {
+            if (oil8 == 0)
+            {
                 this.oilGauge8.GetComponent<Image>().fillAmount += 0.2f * Time.deltaTime;
+            }
         }
 
         if (script.num == 5)
         {
+            if (oil5 == 0)
+            {
                 this.oilGauge5.GetComponent<Image>().fillAmount += 0.2f * Time.deltaTime;
+            }
         }
 
         if (script.num == 3)
         {
+            if (oil3 == 0)
+            {
                 this.oilGauge3.GetComponent<Image>().fillAmount += 0.2f * Time.deltaTime;
+            }
         }
 
     }
@@ -71,15 +79,25 @@ public class UI : MonoBehaviour
 
         if (script.num == 8)
         {
+            if (oil8 > 0)
+            {
                 this.oilGauge8.GetComponent<Image>().fillAmount -= 0.125f;
+            }
         }
         if (script.num == 5)
         {
+            if (oil5 > 0)
+            {
                 this.oilGauge5.GetComponent<Image>().fillAmount -= 0.2f;
+            }
         }
         if (script.num == 3)
         {
-                this.oilGauge3.GetComponent<Image>().fillAmount -= 1.0f /3.0f;
+            if(oil3 > 0)
+            {
+                this.oilGauge3.GetComponent<Image>().fillAmount -= 1.0f / 3.0f;
+            }
+            
         }
 
     }

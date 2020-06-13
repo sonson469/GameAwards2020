@@ -76,7 +76,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagname: Tongue
-  MatchI: {fileID: 0}
+  MatchON: {fileID: 0}
+  MatchOFF: {fileID: 0}
   MatchFlag: 0
 --- !u!1001 &6176618804205369258
 PrefabInstance:
