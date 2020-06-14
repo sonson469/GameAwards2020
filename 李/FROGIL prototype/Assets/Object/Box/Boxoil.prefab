@@ -79,6 +79,8 @@ MonoBehaviour:
   OilTag: action
   showobject: {fileID: 0}
   showObject2: {fileID: 0}
+  notoil: {fileID: 8614119357485091396}
+  oilhako: {fileID: 2334076685145922018}
   oilflag: 0
   oillimit: 10
 --- !u!1001 &336242737210217293
@@ -170,6 +172,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26d89c7ecd1ea8d4084c455bd060a66b, type: 3}
+--- !u!1 &8614119357485091396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 26d89c7ecd1ea8d4084c455bd060a66b,
+    type: 3}
+  m_PrefabInstance: {fileID: 336242737210217293}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4742332405625518167 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 26d89c7ecd1ea8d4084c455bd060a66b,
@@ -265,6 +273,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30ecc388e1f999a41abd102a27ef7a1b, type: 3}
+--- !u!1 &2334076685145922018 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 30ecc388e1f999a41abd102a27ef7a1b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6000381808404562155}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1603026071931988977 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 30ecc388e1f999a41abd102a27ef7a1b,

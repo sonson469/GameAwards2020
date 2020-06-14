@@ -59,10 +59,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Game/Stage10.unity
     guid: 85a7e9dc85af9b141996cef649ae1e7a
+  - enabled: 1
+    path: Assets/Scenes/How.unity
+    guid: 232f6e01e0429224a8e208de2dda14a4
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/How.unity
-    guid: 387a8d523ac36124eaaa496b3f015546
   m_configObjects: {}

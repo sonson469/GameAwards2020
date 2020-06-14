@@ -3672,6 +3672,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 59630609768223897, guid: 880bd38d31ad8514c961c57ff597cfc8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 59630609768223897, guid: 880bd38d31ad8514c961c57ff597cfc8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 59630609768223897, guid: 880bd38d31ad8514c961c57ff597cfc8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 59630609768223897, guid: 880bd38d31ad8514c961c57ff597cfc8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2135784366}
+    - target: {fileID: 59630609768223897, guid: 880bd38d31ad8514c961c57ff597cfc8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoNextStage
+      objectReference: {fileID: 0}
+    - target: {fileID: 59630609768223897, guid: 880bd38d31ad8514c961c57ff597cfc8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 816745006005418859, guid: 880bd38d31ad8514c961c57ff597cfc8,
         type: 3}
       propertyPath: m_Name
@@ -3751,6 +3781,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210566526829045898, guid: 880bd38d31ad8514c961c57ff597cfc8,
+        type: 3}
+      propertyPath: num
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4224505635566790704, guid: 880bd38d31ad8514c961c57ff597cfc8,
         type: 3}
@@ -3916,6 +3951,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572241967196696727, guid: 880bd38d31ad8514c961c57ff597cfc8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7781311032625121215, guid: 880bd38d31ad8514c961c57ff597cfc8,
         type: 3}

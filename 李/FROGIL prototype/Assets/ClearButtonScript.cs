@@ -23,9 +23,9 @@ public class ClearButtonScript : MonoBehaviour
     public UITime timerisult;
     public GameObject TimeText;
 
+    public int num;
+
     float Timer;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +70,47 @@ public class ClearButtonScript : MonoBehaviour
         }
         realDeltaTime = Time.realtimeSinceStartup - lastRealTime;
         lastRealTime = Time.realtimeSinceStartup;
+    }
+
+    public void GoNextStage()
+    {
+        if (num == 1)
+        {
+
+            SceneManager.LoadScene("Stage1");
+        }
+        if (num == 2)
+        {
+            SceneManager.LoadScene("Stage2");
+        }
+        if (num == 3)
+        {
+            SceneManager.LoadScene("Stage3");
+        }
+        if (num == 4)
+        {
+            SceneManager.LoadScene("Stage4");
+        }
+        if (num == 5)
+        {
+            SceneManager.LoadScene("Stage5");
+        }
+        if (num == 6)
+        {
+            SceneManager.LoadScene("Stage6");
+        }
+        if (num == 7)
+        {
+            SceneManager.LoadScene("Stage7");
+        }
+        if (num == 8)
+        {
+            SceneManager.LoadScene("Stage8");
+        }
+        if (num == 9)
+        {
+            SceneManager.LoadScene("Stage9");
+        }
     }
 
     public void GoStageSelect()

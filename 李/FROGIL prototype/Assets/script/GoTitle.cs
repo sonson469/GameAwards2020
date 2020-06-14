@@ -14,7 +14,7 @@ public class GoTitle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("space") || Input.GetButtonDown("Tongue") || Input.GetButtonDown("Oil"))
+        if (Input.GetKey("space") || Input.GetButtonDown("Oil") || Input.GetButtonDown("Tongue"))
         {
             SceneManager.LoadScene("Title");
         }

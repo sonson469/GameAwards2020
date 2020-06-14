@@ -19,6 +19,9 @@ public class Boxoil : MonoBehaviour
     public GameObject showobject;
     public GameObject showObject2;
 
+    public GameObject notoil;
+    public GameObject oilhako;
+
     //***********
     // フラグ
     //***********
@@ -40,6 +43,9 @@ public class Boxoil : MonoBehaviour
     {
         rbody = this.GetComponent<Rigidbody>();
 
+        notoil.SetActive(true);
+        oilhako.SetActive(false);
+
         //showobject = GameObject.Find("ObjectOil_5");
         //showObject2 = GameObject.Find("ObjectOil_5sotowaku");
 
@@ -55,6 +61,8 @@ public class Boxoil : MonoBehaviour
     {
         if (oilflag == true)
         {
+            notoil.SetActive(false);
+            oilhako.SetActive(true);
             rbody.constraints = RigidbodyConstraints.None;
             rbody.constraints = RigidbodyConstraints.FreezeRotation;
             showobject.SetActive(true);
@@ -67,6 +75,8 @@ public class Boxoil : MonoBehaviour
         }
         if (oilflag == false)
         {
+            notoil.SetActive(true);
+            oilhako.SetActive(false);
             rbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
             showobject.SetActive(false);
             showObject2.SetActive(false);

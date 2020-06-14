@@ -2568,6 +2568,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 59630609768223897, guid: 880bd38d31ad8514c961c57ff597cfc8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 59630609768223897, guid: 880bd38d31ad8514c961c57ff597cfc8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 59630609768223897, guid: 880bd38d31ad8514c961c57ff597cfc8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 59630609768223897, guid: 880bd38d31ad8514c961c57ff597cfc8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 225689424}
+    - target: {fileID: 59630609768223897, guid: 880bd38d31ad8514c961c57ff597cfc8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoNextStage
+      objectReference: {fileID: 0}
+    - target: {fileID: 59630609768223897, guid: 880bd38d31ad8514c961c57ff597cfc8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 650351575218237460, guid: 880bd38d31ad8514c961c57ff597cfc8,
         type: 3}
       propertyPath: m_IsActive
@@ -2641,7 +2671,7 @@ PrefabInstance:
     - target: {fileID: 2780845835574733900, guid: 880bd38d31ad8514c961c57ff597cfc8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3446941728811854950, guid: 880bd38d31ad8514c961c57ff597cfc8,
         type: 3}
@@ -2652,6 +2682,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210566526829045898, guid: 880bd38d31ad8514c961c57ff597cfc8,
+        type: 3}
+      propertyPath: num
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4224505635566790704, guid: 880bd38d31ad8514c961c57ff597cfc8,
         type: 3}
@@ -2886,7 +2921,7 @@ PrefabInstance:
     - target: {fileID: 8540134220032552047, guid: 880bd38d31ad8514c961c57ff597cfc8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8640008833636650266, guid: 880bd38d31ad8514c961c57ff597cfc8,
         type: 3}

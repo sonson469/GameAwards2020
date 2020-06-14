@@ -19,6 +19,10 @@ public class Boxice : MonoBehaviour
     public GameObject showobject;
     public GameObject showObject2;
 
+    //モデルかわる
+    public GameObject Icebox;
+    public GameObject Iceoil;
+
     //***********
     // フラグ
     //***********
@@ -43,6 +47,9 @@ public class Boxice : MonoBehaviour
         //showobject = GameObject.Find("ObjectOil_5");
         //showObject2 = GameObject.Find("ObjectOil_5sotowaku");
 
+        Icebox.SetActive(true);
+        Iceoil.SetActive(false);
+
         if (showobject)
         {
             showobject.SetActive(false);
@@ -57,6 +64,8 @@ public class Boxice : MonoBehaviour
         {
             rbody.constraints = RigidbodyConstraints.None;
             rbody.constraints = RigidbodyConstraints.FreezeRotation;
+            Icebox.SetActive(false);
+            Iceoil.SetActive(true);
             showobject.SetActive(true);
             showObject2.SetActive(true);
             this.showobject.GetComponent<Image>().fillAmount -= 0.2f * Time.deltaTime;
@@ -65,8 +74,10 @@ public class Boxice : MonoBehaviour
         {
             oilflag = false;
         }
-            if (oilflag == false)
+        if (oilflag == false)
         {
+            Icebox.SetActive(true);
+            Iceoil.SetActive(false);
             rbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
             showobject.SetActive(false);
             showObject2.SetActive(false);
